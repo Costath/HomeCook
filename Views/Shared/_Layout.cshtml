@@ -4,11 +4,30 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="~/Styles/HomeStyles.css" rel="stylesheet" />
+    <link href="~/Styles/Styles.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        @RenderBody()
+    <div id="allScreen">
+        <header>
+            <img src="~/Images/HeadImg.jpg" height="63" width="109" />
+            <h3>Home Cook</h3>
+        </header>
+        <article>
+            <nav id="sidebar">
+                <ul>
+                    <li><a asp-controller="Recipe" asp-action="DisplayPage">DisplayPage</a></li>
+                    <li><a asp-controller="Recipe" asp-action="InsertPage">InsertPage</a></li>
+                    <li><a asp-controller="Recipe" asp-action="DataPage">DataPage</a></li>
+                    <li><a asp-controller="Recipe" asp-action="UserPage">UserPage</a></li>
+                </ul>
+            </nav>
+            <div id="content">
+                @RenderBody()
+            </div>
+        </article>
+        <footer>
+            <h6>&copy; Thales Costa - Fall 2019 - Centennial College</h6>
+        </footer>
     </div>
 </body>
 </html>

@@ -1,0 +1,11 @@
+C:\Users\Thales\Documents\Centennial\Web Dev\Assignment1\Assignment1\obj\Debug\netcoreapp2.0\Assignment1.csprojAssemblyReference.cache
+C:\Users\Thales\Documents\Centennial\Web Dev\Assignment1\Assignment1\obj\Debug\netcoreapp2.0\Assignment1.csproj.CoreCompileInputs.cache
+C:\Users\Thales\Documents\Centennial\Web Dev\Assignment1\Assignment1\obj\Debug\netcoreapp2.0\Assignment1.AssemblyInfoInputs.cache
+C:\Users\Thales\Documents\Centennial\Web Dev\Assignment1\Assignment1\obj\Debug\netcoreapp2.0\Assignment1.AssemblyInfo.cs
+C:\Users\Thales\Documents\Centennial\Web Dev\Assignment1\Assignment1\bin\Debug\netcoreapp2.0\Assignment1.deps.json
+C:\Users\Thales\Documents\Centennial\Web Dev\Assignment1\Assignment1\bin\Debug\netcoreapp2.0\Assignment1.runtimeconfig.json
+C:\Users\Thales\Documents\Centennial\Web Dev\Assignment1\Assignment1\bin\Debug\netcoreapp2.0\Assignment1.runtimeconfig.dev.json
+C:\Users\Thales\Documents\Centennial\Web Dev\Assignment1\Assignment1\bin\Debug\netcoreapp2.0\Assignment1.dll
+C:\Users\Thales\Documents\Centennial\Web Dev\Assignment1\Assignment1\bin\Debug\netcoreapp2.0\Assignment1.pdb
+C:\Users\Thales\Documents\Centennial\Web Dev\Assignment1\Assignment1\obj\Debug\netcoreapp2.0\Assignment1.dll
+C:\Users\Thales\Documents\Centennial\Web Dev\Assignment1\Assignment1\obj\Debug\netcoreapp2.0\Assignment1.pdb
