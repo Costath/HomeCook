@@ -6,29 +6,38 @@
     background-color: bisque
 }
 header {
-    background-color: #d0baa0
+    background-color: #d0baa0;
+    text-align: center;
+    height: 104px;
 }
 header h3 {
     font-family: 'Lucida Calligraphy';
     color: saddlebrown;
     display: inline;
+    margin-left: 270px;
+    margin-right: 410px;
     position: relative;
-    left: 323px;
     top: -20px;
-    margin-left: auto;
-    margin-right: auto;
+}
+article {
+    position:relative;
 }
 #sidebar {
     background-color: #d0baa0;
-    width: 180px;
+    width: 150px;
     padding: 15px;
 }
 #sidebar ul {
     margin: 0px;
+    list-style-type:none;
+    padding: 0px 20px 0px 30px;
 }
-/*#content{
-    display: inline;
-}*/
+#content {
+    position: absolute;
+    left: 180px;
+    top: 0px;
+    padding: 15px;
+}
 footer {
     background-color: #d0baa0;
 }
@@ -38,4 +47,11 @@ footer h6 {
     left: 369px;
     padding: 10px;
     margin: 0px;
+}
+a {
+    text-decoration: none;
+    color: saddlebrown;
+}
+a:hover {
+    color: #48240a;
 }
