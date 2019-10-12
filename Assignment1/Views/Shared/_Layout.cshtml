@@ -9,18 +9,17 @@
 <body>
     <div id="allScreen">
         <header>
-            @*<a asp-controller="Recipe" asp-action="Home"><img src="~/Images/HeadImg.jpg" height="63" width="109" /></a>*@
             <a asp-controller="Recipe" asp-action="Home"><img src="~/Images/HeadImg.jpg" height="104" width="180" /></a>
-            @*<a asp-controller="Recipe" asp-action="Home"><img src="~/Images/HeadImg.jpg" height="111" width="192" /></a>*@
             <h3>Home Cook</h3>
         </header>
         <article>
             <nav id="sidebar">
                 <ul>
+                    <li><a asp-controller="Recipe" asp-action="Home">Home Page</a></li>
                     <li><a asp-controller="Recipe" asp-action="DisplayPage">DisplayPage</a></li>
-                    <li><a asp-controller="Recipe" asp-action="InsertPage">InsertPage</a></li>
-                    <li><a asp-controller="Recipe" asp-action="DataPage">DataPage</a></li>
+                    <li><a asp-controller="Recipe" asp-action="AllRecipes">All Recipes</a></li>
                     <li><a asp-controller="Recipe" asp-action="UserPage">UserPage</a></li>
+                    <li><a asp-controller="Recipe" asp-action="AddRecipe">Add Recipe</a></li>
                 </ul>
             </nav>
             <div id="content">

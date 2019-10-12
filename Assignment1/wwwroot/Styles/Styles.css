@@ -20,12 +20,15 @@ header h3 {
     top: -20px;
 }
 article {
-    position:relative;
+    position: relative;
 }
 #sidebar {
+    position: absolute;
+    top: 0px;
+    height: 100%;
     background-color: #d0baa0;
-    width: 150px;
     padding: 15px;
+    display: inline-block;
 }
 #sidebar ul {
     margin: 0px;
@@ -33,9 +36,9 @@ article {
     padding: 0px 20px 0px 30px;
 }
 #content {
-    position: absolute;
+    position: relative;
     left: 180px;
-    top: 0px;
+    display: inline-block;
     padding: 15px;
 }
 footer {

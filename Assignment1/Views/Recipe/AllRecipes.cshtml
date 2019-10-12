@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Assignment1.Models.Recipe>
+
+@{
+    ViewData["Title"] = "DataPage";
+}
+
+<table>
+    <thead>
+        <tr>
+            <td>Title</td>
+            <td>Preparation time</td>
+            <td>Cook time</td>
+        </tr>
+    </thead>
+@foreach (Assignment1.Models.Recipe recipe in Model)
+{   
+    <tbody>
+        <tr>
+            <td>
+                <form asp-action="DisplayPage" method="post">
+                    <input type="hidden" name="title" value=@recipe.Title />
+                    <button type="submit"><h2>@recipe.Title</h2></button>
+                </form>
+            </td>
+            <td></td> @*Make it a link to the recipe page*@
+            <td>@recipe.PrepTime</td>
+            <td>@recipe.CookTime</td>
+            @*<td>Image: @recipe.ImagePath</td>*@
+        </tr>
+    </tbody>
+}
+</table>

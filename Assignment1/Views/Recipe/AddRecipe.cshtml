@@ -1,0 +1,17 @@
+﻿@model Assignment1.Models.Recipe
+
+@{
+    ViewData["Title"] = "Add New Recipe";
+}
+
+<form method="post">
+    @Html.Partial("Partial_AddRecipe")
+
+
+    <br /><br />
+    <button id="save" type="submit">Save</button>
+    <a asp-action="Home">
+        <button id="cancel" type="button">Cancel</button>
+    </a>
+
+</form>
