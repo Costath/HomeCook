@@ -7,7 +7,7 @@ namespace Assignment1.Models
 {
     public class Recipe
     {
-        //private int RecipeID { get; set; }
+        public int RecipeID { get; set; }
         public string Title { get; set; }
         //private List<Ingredients> Ingredients { get; set; }
         //public List<string> Ingredients { get; set; }

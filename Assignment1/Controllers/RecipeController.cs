@@ -14,12 +14,22 @@ namespace Assignment1.Controllers
         {
             return View();
         }
-        public ViewResult DisplayPage(string title)
+        public ViewResult DisplayPage(int recipeID)
         {
+            //RecipeListViewModel rec = new RecipeListViewModel
+            //{
+            //    Recipes = Repository.Recipes
+            //    .Where(r => r.Title == title)
+            //};
+
+            //rec.Recipes.First().Title = rec.Recipes.First().Title.Replace('_', ' ');
+            //return View(rec.Recipes);
+
             return View(new RecipeListViewModel
             {
                 Recipes = Repository.Recipes
-                .Where(r => r.Title == title)
+                //.Where(r => r.Title == title)
+                .Where(r => r.RecipeID == recipeID)
             }.Recipes);
         }
         public ViewResult UserPage()
@@ -38,11 +48,13 @@ namespace Assignment1.Controllers
         [HttpPost]
         public ViewResult AddRecipe(Recipe recipe)
         {
+            //recipe.Title = recipe.Title.Replace(' ', '_');
             Repository.AddRecipe(recipe);
             return View("DisplayPage", new RecipeListViewModel
             {
                 Recipes = Repository.Recipes
-                .Where(r => r.Title == recipe.Title)
+                //.Where(r => r.Title == recipe.Title)
+                .Where(r => r.RecipeID == recipe.RecipeID)
             }.Recipes);
         }
         public PartialViewResult Partial_AddRecipe()

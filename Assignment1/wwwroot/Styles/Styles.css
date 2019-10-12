@@ -58,3 +58,18 @@ a {
 a:hover {
     color: #48240a;
 }
+#allRecipesForm button {
+    -webkit-appearance: none;
+    background-color: inherit;
+    border-width: 0px;
+    /*color: blue;
+    text-decoration:underline;*/
+}
+#allRecipesForm button :hover {
+    cursor: pointer;
+    color: saddlebrown;
+    text-decoration: underline;
+}
+#allRecipesForm button :active {
+    
+}

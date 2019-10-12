@@ -17,8 +17,8 @@
     <tbody>
         <tr>
             <td>
-                <form asp-action="DisplayPage" method="post">
-                    <input type="hidden" name="title" value=@recipe.Title />
+                <form id="allRecipesForm" asp-action="DisplayPage" method="post">
+                    <input type="hidden" name="title" value=@recipe.RecipeID />
                     <button type="submit"><h2>@recipe.Title</h2></button>
                 </form>
             </td>
