@@ -1,19 +1,17 @@
 ﻿@model IEnumerable<Assignment1.Models.Recipe>
 
 @{
-    ViewData["Title"] = "DisplayPage";
+    ViewData["Title"] = "Recipe Page";
 }
 
 @foreach (Assignment1.Models.Recipe r in Model)
 {
     <table>
-        <tr>
-            <td><h2>@r.Title</h2></td>
-            <td>Preparation time: @r.PrepTime</td>
-            <td>Cook time: @r.CookTime</td>
-            <td>Ingredients: @r.Ingredients</td>
-            <td>Instructions: @r.Instructions</td>
-            @*<td>Image: @recipe.ImagePath</td>*@
-        </tr>
+        <tr><td><h2>@r.Title</h2></td></tr>
+        <tr><td>Preparation time: @r.PrepTime</td></tr>
+        <tr><td>Cook time: @r.CookTime</td></tr>
+        <tr><td>Ingredients: @r.Ingredients</td></tr>
+        <tr><td>Instructions: @r.Instructions</td></tr>
+        @*<tr><td>Image: @recipe.ImagePath</td></tr>*@
     </table>
 }

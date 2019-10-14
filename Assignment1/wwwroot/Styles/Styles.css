@@ -33,7 +33,7 @@ article {
 #sidebar ul {
     margin: 0px;
     list-style-type:none;
-    padding: 0px 20px 0px 30px;
+    padding: 0px 30px 0px 30px;
 }
 #content {
     position: relative;
@@ -58,18 +58,39 @@ a {
 a:hover {
     color: #48240a;
 }
-#allRecipesForm button {
-    -webkit-appearance: none;
-    background-color: inherit;
-    border-width: 0px;
-    /*color: blue;
-    text-decoration:underline;*/
+#content {
+    min-height: 100px;
 }
-#allRecipesForm button :hover {
-    cursor: pointer;
-    color: saddlebrown;
-    text-decoration: underline;
+#addRecipeTable{
+    text-align: right;
 }
-#allRecipesForm button :active {
+input, textarea {
+    width: 650px;
     
+}
+.allRecipesForms span {
+    cursor: pointer;
+    text-align: left;
+    width: auto;
+}
+table {
+    width: 755px;
+    border-collapse: collapse;
+}
+td {
+    padding-left: 15px;
+}
+.secondCol {
+    width: 100px;
+}
+form span {
+    width: 300px;
+    float: left;
+    text-align: right;
+}
+.allRecipesTD {
+    text-align: center;
+}
+.alternate {
+    background-color: sandybrown;   
 }

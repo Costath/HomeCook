@@ -1,30 +1,28 @@
 ﻿@model IEnumerable<Assignment1.Models.Recipe>
 
 @{
-    ViewData["Title"] = "DataPage";
+    ViewData["Title"] = "All Recipes";
 }
 
 <table>
     <thead>
-        <tr>
-            <td>Title</td>
-            <td>Preparation time</td>
-            <td>Cook time</td>
+        <tr class="alternate">
+            <td><h3>Title</h3></td>
+            <td><h3>Preparation time</h3></td>
+            <td><h3>Cook time</h3></td>
         </tr>
     </thead>
 @foreach (Assignment1.Models.Recipe recipe in Model)
 {   
     <tbody>
-        <tr>
-            <td>
-                <form id="allRecipesForm" asp-action="DisplayPage" method="post">
-                    <input type="hidden" name="title" value=@recipe.RecipeID />
-                    <button type="submit"><h2>@recipe.Title</h2></button>
+        <tr class="@((recipe.RecipeID % 2 == 1) ? "alternate" : "")">
+            <td width="60%">
+                <form class="allRecipesForms" id="recipe#@recipe.RecipeID" asp-action="DisplayPage" asp-route-recipeID="@recipe.RecipeID" method="post">
+                    <span onclick="(function () {document.getElementById('recipe#@recipe.RecipeID').submit(); })()">@recipe.Title</span>
                 </form>
             </td>
-            <td></td> @*Make it a link to the recipe page*@
-            <td>@recipe.PrepTime</td>
-            <td>@recipe.CookTime</td>
+            <td class="allRecipesTD" width="24%">@recipe.PrepTime</td>
+            <td class="allRecipesTD" width="16%">@recipe.CookTime</td>
             @*<td>Image: @recipe.ImagePath</td>*@
         </tr>
     </tbody>

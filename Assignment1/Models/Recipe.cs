@@ -9,8 +9,6 @@ namespace Assignment1.Models
     {
         public int RecipeID { get; set; }
         public string Title { get; set; }
-        //private List<Ingredients> Ingredients { get; set; }
-        //public List<string> Ingredients { get; set; }
         public string Ingredients { get; set; }
         public float PrepTime { get; set; }
         public float CookTime { get; set; }

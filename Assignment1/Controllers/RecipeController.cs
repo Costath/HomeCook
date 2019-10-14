@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Assignment1.Infrastructure;
 using Assignment1.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,23 +13,11 @@ namespace Assignment1.Controllers
         {
             return View();
         }
+        [Route("{recipeID}")]
         public ViewResult DisplayPage(int recipeID)
         {
-            //RecipeListViewModel rec = new RecipeListViewModel
-            //{
-            //    Recipes = Repository.Recipes
-            //    .Where(r => r.Title == title)
-            //};
-
-            //rec.Recipes.First().Title = rec.Recipes.First().Title.Replace('_', ' ');
-            //return View(rec.Recipes);
-
-            return View(new RecipeListViewModel
-            {
-                Recipes = Repository.Recipes
-                //.Where(r => r.Title == title)
-                .Where(r => r.RecipeID == recipeID)
-            }.Recipes);
+            return View(Repository.recipes
+                .Where(r => r.RecipeID == recipeID));
         }
         public ViewResult UserPage()
         {
@@ -38,7 +25,7 @@ namespace Assignment1.Controllers
         }
         public ViewResult AllRecipes()
         {
-            return View(Repository.Recipes);
+            return View(Repository.recipes);
         }
         [HttpGet]
         public ViewResult AddRecipe()
@@ -48,14 +35,9 @@ namespace Assignment1.Controllers
         [HttpPost]
         public ViewResult AddRecipe(Recipe recipe)
         {
-            //recipe.Title = recipe.Title.Replace(' ', '_');
             Repository.AddRecipe(recipe);
-            return View("DisplayPage", new RecipeListViewModel
-            {
-                Recipes = Repository.Recipes
-                //.Where(r => r.Title == recipe.Title)
-                .Where(r => r.RecipeID == recipe.RecipeID)
-            }.Recipes);
+            return View("DisplayPage", Repository.recipes
+                .Where(r => r.RecipeID == recipe.RecipeID));
         }
         public PartialViewResult Partial_AddRecipe()
         {
