@@ -13,6 +13,5 @@ namespace Assignment1.Models
         public float PrepTime { get; set; }
         public float CookTime { get; set; }
         public string Instructions { get; set; }
-        //public string ImagePath { get; set; }
     }
 }
