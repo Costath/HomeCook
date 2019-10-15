@@ -13,7 +13,7 @@
             <h3>Home Cook</h3>
         </header>
         <article>
-            <nav id="sidebar">
+            <nav id="sidebar"> @*Left side navigation menu*@
                 <ul>
                     <li><a asp-controller="Recipe" asp-action="Home">Home Page</a></li>
                     <li><a asp-controller="Recipe" asp-action="AllRecipes">All Recipes</a></li>
@@ -21,7 +21,7 @@
                     <li><a asp-controller="Recipe" asp-action="AddRecipe">Add Recipe</a></li>
                 </ul>
             </nav>
-            <div id="content">
+            <div id="content"> @*Main content area*@
                 @RenderBody()
             </div>
         </article>

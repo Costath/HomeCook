@@ -13,7 +13,8 @@ namespace Assignment1.Controllers
         {
             return View();
         }
-        [Route("{recipeID}")]
+        //Action that renders the DisplayPage view passing a single Recipe object according to the received parameter
+        [Route("{recipeID}")] //Attribute to receive the recipeID from the last view
         public ViewResult DisplayPage(int recipeID)
         {
             return View(Repository.recipes
@@ -27,11 +28,12 @@ namespace Assignment1.Controllers
         {
             return View(Repository.recipes);
         }
-        [HttpGet]
+        [HttpGet] //When the AddRecipe view is opened from the link in the navigation menu it is rendered by this action
         public ViewResult AddRecipe()
         {
             return View();
         }
+        //When a Recipe object is created from AddRecipe view, the page is reloaded with the post method. This action adds the just created Recipe object to the Repository and renders the DisplayPage view passing this Recipe object
         [HttpPost]
         public ViewResult AddRecipe(Recipe recipe)
         {

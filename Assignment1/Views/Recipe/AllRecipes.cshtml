@@ -15,11 +15,9 @@
 @foreach (Assignment1.Models.Recipe recipe in Model)
 {   
     <tbody>
-        <tr class="@((recipe.RecipeID % 2 == 1) ? "alternate" : "")">
+        <tr class="@((recipe.RecipeID % 2 == 1) ? "alternate" : "")"> @*sets the class as alternate for the odd rows according to the RecipeID*@
             <td width="60%">
-                <form class="allRecipesForms" id="recipe#@recipe.RecipeID" asp-action="DisplayPage" asp-route-recipeID="@recipe.RecipeID" method="post">
-                    <span onclick="(function () {document.getElementById('recipe#@recipe.RecipeID').submit(); })()">@recipe.Title</span>
-                </form>
+                <a asp-action="DisplayPage" asp-route-recipeID="@recipe.RecipeID">@recipe.Title</a>@*passes the RecipeID of the clicked recipe through the URL*@
             </td>
             <td class="allRecipesTD" width="24%">@recipe.PrepTime</td>
             <td class="allRecipesTD" width="16%">@recipe.CookTime</td>
