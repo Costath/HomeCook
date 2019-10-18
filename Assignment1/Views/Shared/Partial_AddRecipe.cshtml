@@ -14,9 +14,17 @@
         <td class="secondCol"><input asp-for="CookTime" /></td>
     </tr>
     <tr>
-        <td><label asp-for="Ingredients">Ingredients: </label></td>
-        <td class="secondCol"><textarea rows="4" asp-for="Ingredients"></textarea><br /></td>
+        <td colspan="2"><label asp-for="Ingredients">Ingredients: </label></td>
     </tr>
+
+        @*@Html.Partial("Partial_AddIngredient", model: new Assignment1.Models.Ingredient { })*@
+        @Html.Partial("Partial_AddIngredient", Model.Ingredients)
+    <tr><td colspan="2"><a onclick="addIngridient">Add another ingredient</a></td></tr>
+
+        @*<tr>
+            <td><label asp-for="Ingredients">Ingredients: </label></td>
+        <td class="secondCol"><textarea rows="4" asp-for="Ingredients"></textarea><br /></td>
+       </tr>*@
     <tr>
         <td><label asp-for="Instructions">Instructions: </label></td>
         <td class="secondCol"><textarea rows="4" asp-for="Instructions"></textarea><br /></td>

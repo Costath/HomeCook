@@ -12,6 +12,10 @@ namespace Assignment1.Models
         /// </summary>
         public static List<Recipe> recipes = new List<Recipe> { };
         /// <summary>
+        /// 
+        /// </summary>
+        public static List<Ingredient> ingredients = new List<Ingredient> { };
+        /// <summary>
         /// Adds a new Recipe object to the recipes List
         /// </summary>
         /// <param name="recipe"></param>
@@ -20,6 +24,15 @@ namespace Assignment1.Models
             recipe.RecipeID = (recipes.Count() == 0) ? 0 : recipes.Last().RecipeID + 1;
 
             recipes.Add(recipe);
+        }/// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ingredient"></param>
+        public static void AddIngredient(Ingredient ingredient)
+        {
+            ingredient.IngredientID = (ingredients.Count() == 0) ? 0 : ingredients.Last().IngredientID + 1;
+
+            ingredients.Add(ingredient);
         }
     }
 }
