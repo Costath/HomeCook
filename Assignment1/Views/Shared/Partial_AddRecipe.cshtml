@@ -4,29 +4,43 @@
     <tr>
         <td><label asp-for="Title">Title: </label></td>
         <td class="secondCol"><input asp-for="Title" /></td>
+        <td></td>
     </tr>
     <tr>
-        <td><label asp-for="PrepTime">PrepTime: </label></td>
+        <td><label asp-for="PrepTime">Preperation Time: </label></td>
         <td class="secondCol"><input asp-for="PrepTime" /></td>
+        <td class="thirdCol">minutes</td>
     </tr>
     <tr>
-        <td><label asp-for="CookTime">CookTime: </label></td>
+        <td><label asp-for="CookTime">Cooking Time: </label></td>
         <td class="secondCol"><input asp-for="CookTime" /></td>
+        <td class="thirdCol">minutes</td>
     </tr>
-    <tr>
-        <td colspan="2"><label asp-for="Ingredients">Ingredients: </label></td>
-    </tr>
-
-        @*@Html.Partial("Partial_AddIngredient", model: new Assignment1.Models.Ingredient { })*@
-        @Html.Partial("Partial_AddIngredient", Model.Ingredients)
-    <tr><td colspan="2"><a onclick="addIngridient">Add another ingredient</a></td></tr>
-
-        @*<tr>
-            <td><label asp-for="Ingredients">Ingredients: </label></td>
-        <td class="secondCol"><textarea rows="4" asp-for="Ingredients"></textarea><br /></td>
-       </tr>*@
+    @for (int i = 0; i < 5; i++)
+        {
+        <tr>
+            <td><label asp-for="@Model.Ingredients[@i].Name">Ingredient: </label></td>
+            <td class="secondCol"><input asp-for="@Model.Ingredients[@i].Name"><br /></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><label asp-for="@Model.Ingredients[@i].Quantity">Quantity: </label></td>
+            <td class="secondCol">
+                <input class="ingredientUnitInput" asp-for="@Model.Ingredients[@i].Quantity">
+                <select asp-for="@Model.Ingredients[@i].UnitOfMeasurement" asp-items="@Html.GetEnumSelectList<Assignment1.Models.Ingredient._unitOfMeasurement>()">
+                </select>
+            </td>
+            <td></td>
+        </tr>
+        <tr><td colspan="3"><hr /></td></tr>
+        }
+    @*<tr>
+        <td colspan="2"><a onclick="addIngridient">Add another ingredient</a></td>
+        <td></td>
+    </tr>*@
     <tr>
         <td><label asp-for="Instructions">Instructions: </label></td>
         <td class="secondCol"><textarea rows="4" asp-for="Instructions"></textarea><br /></td>
+        <td></td>
     </tr>
 </table>
