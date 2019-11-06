@@ -65,8 +65,7 @@ a:hover {
     text-align: right;
 }
 input, textarea {
-    width: 650px;
-    
+    width: 200px;
 }
 .allRecipesForms span {
     cursor: pointer;
@@ -74,14 +73,23 @@ input, textarea {
     width: auto;
 }
 table {
-    width: 755px;
+    width: 450px;
+    margin-left: 60px;
+    margin-right: 150px;
     border-collapse: collapse;
 }
 td {
     padding-left: 15px;
 }
 .secondCol {
-    width: 100px;
+    width: 150px;
+}
+.thirdCol {
+    text-align: left;
+}
+.ingredientUnitInput {
+    text-align: right;
+    width: 50px;
 }
 form span {
     width: 300px;
@@ -93,4 +101,7 @@ form span {
 }
 .alternate {
     background-color: sandybrown;   
+}
+li {
+    list-style: none;
 }

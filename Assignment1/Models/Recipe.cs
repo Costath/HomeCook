@@ -20,7 +20,7 @@ namespace Assignment1.Models
         /// <summary>
         /// Holds a string with the ingredients for the Recipe object
         /// </summary>
-        public string Ingredients { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
         /// <summary>
         /// Holds the preparation time for the Recipe object
         /// </summary>
