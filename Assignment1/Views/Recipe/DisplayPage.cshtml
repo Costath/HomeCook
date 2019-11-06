@@ -8,14 +8,17 @@
 {
     <ul>
         <li><h2>@r.Title</h2></li>
-        <li>Preparation time: @r.PrepTime</li>
-        <li>Cook time: @r.CookTime</li>
-        <li>Ingredients: @r.Ingredients</li>
+        <li>Preparation time: @r.PrepTime min</li>
+        <li>Cooking time: @r.CookTime min</li>
+        <li>Ingredients:</li>
         <li>
             <ul>
                 @foreach (Assignment1.Models.Ingredient i in r.Ingredients)
                 {
-                    <li>@i.Name - @i.Quantity @i.UnitOfMeasurement</li>
+                    if (i.Quantity > 0)
+                    {
+                        <li>@i.Name - @i.Quantity @i.UnitOfMeasurement</li>
+                    }   
                 }
 
             </ul>

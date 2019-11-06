@@ -13,6 +13,7 @@ namespace Assignment1.Models
         public _unitOfMeasurement UnitOfMeasurement { get; set; }
         public enum _unitOfMeasurement
         {
+            ______,
             litter,
             ml,
             gram,
