@@ -7,8 +7,8 @@
         <td></td>
     </tr>
     <tr>
-        <td><label asp-for="PrepTime">Preperation Time: </label></td>
-        <td class="secondCol"><input asp-for="PrepTime" /></td>
+        <td><label asp-for="TotalTime">Preperation Time: </label></td>
+        <td class="secondCol"><input asp-for="TotalTime" /></td>
         <td class="thirdCol">minutes</td>
     </tr>
     <tr>
@@ -28,6 +28,7 @@
             <td class="secondCol">
                 <input class="ingredientUnitInput" asp-for="@Model.Ingredients[@i].Quantity">
                 <select asp-for="@Model.Ingredients[@i].UnitOfMeasurement" asp-items="@Html.GetEnumSelectList<Assignment1.Models.Ingredient._unitOfMeasurement>()">
+                    <option value=""> </option>
                 </select>
             </td>
             <td></td>

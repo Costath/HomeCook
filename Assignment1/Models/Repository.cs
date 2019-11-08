@@ -24,8 +24,9 @@ namespace Assignment1.Models
             recipe.RecipeID = (recipes.Count() == 0) ? 0 : recipes.Last().RecipeID + 1;
 
             recipes.Add(recipe);
-        }/// <summary>
-        /// 
+        }
+        /// <summary>
+        /// Adds a new Ingredient object to the ingredients List
         /// </summary>
         /// <param name="ingredient"></param>
         public static void AddIngredient(Ingredient ingredient)
