@@ -45,6 +45,11 @@ namespace Assignment1
                         name: "default",
                         template: "{controller=Recipe}/{action=Home}/{id?}"
                     );
+                    routes.MapRoute
+                    (
+                        name: null,
+                        template: "{controller=CRUD}/{action=AddRecipe}/{id?}"
+                    );
                 }
             );
             SeedData.PopulateDB(app);
