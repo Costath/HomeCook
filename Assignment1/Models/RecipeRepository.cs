@@ -7,13 +7,28 @@ namespace Assignment1.Models
 {
     public class RecipeRepository : IRecipeRepository
     {
+        /// <summary>
+        /// Recipe DB context
+        /// </summary>
         private ApplicationDbContext context;
 
         public RecipeRepository(ApplicationDbContext ctx)
         {
             context = ctx;
         }
-
+        /// <summary>
+        /// Recipe DB table
+        /// </summary>
         public IQueryable<Recipe> RecipeList => context.Recipes;
+        /// <summary>
+        /// Saves a Recipe object to the database
+        /// </summary>
+        /// <param name="recipe"></param>
+        public void SaveRecipe(Recipe recipe)
+        {
+            context.Recipes.Add(recipe);
+            context.SaveChanges();
+        }
+
     }
 }

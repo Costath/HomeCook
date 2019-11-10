@@ -8,5 +8,7 @@ namespace Assignment1.Models
     public interface IIngredientRepository
     {
         IQueryable<Ingredient> Ingredients { get; }
+
+        void SaveIngredients(List<Ingredient> ingredients);
     }
 }

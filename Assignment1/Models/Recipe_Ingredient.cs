@@ -11,10 +11,12 @@ namespace Assignment1.Models
         /// <summary>
         /// Reference to RecipeID from Recipe table
         /// </summary>
+        [Key]
         public int RecipeID { get; set; }
         /// <summary>
         /// Reference to IngredientID from Ingredient table
         /// </summary>
+        [Key]
         public int IngredientID { get; set; }
         /// <summary>
         /// Quantity of the Ingredient

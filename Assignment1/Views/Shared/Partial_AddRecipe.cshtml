@@ -1,4 +1,4 @@
-﻿@model Assignment1.Models.Recipe
+﻿@model Assignment1.Models.RecipeInput
 
 <table id="addRecipeTable">
     <tr>
@@ -27,7 +27,7 @@
             <td><label asp-for="@Model.Ingredients[@i].Quantity">Quantity: </label></td>
             <td class="secondCol">
                 <input class="ingredientUnitInput" asp-for="@Model.Ingredients[@i].Quantity">
-                <select asp-for="@Model.Ingredients[@i].UnitOfMeasurement" asp-items="@Html.GetEnumSelectList<Assignment1.Models.Ingredient._unitOfMeasurement>()">
+                <select asp-for="@Model.Ingredients[@i].UnitOfMeasurement" asp-items="@Html.GetEnumSelectList<Assignment1.Models.Recipe_Ingredient._unitOfMeasurement>()">
                     <option value=""> </option>
                 </select>
             </td>

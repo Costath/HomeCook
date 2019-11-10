@@ -8,5 +8,7 @@ namespace Assignment1.Models
     public interface IRecipeRepository
     {
         IQueryable<Recipe> RecipeList { get; }
+
+        void SaveRecipe(Recipe recipe);
     }
 }

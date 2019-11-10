@@ -28,6 +28,7 @@ namespace Assignment1
                     Configuration["Data:RecipesWebSiteConnection:ConnectionString"]));
             services.AddTransient<IRecipeRepository, RecipeRepository>();
             services.AddTransient<IIngredientRepository, IngredientRepository>();
+            services.AddTransient< IRecipe_IngredientRepository, Recipe_IngredientRepository> ();
             services.AddMvc();
         }
 

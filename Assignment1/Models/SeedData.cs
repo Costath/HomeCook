@@ -166,163 +166,104 @@ namespace Assignment1.Models
                     new Ingredient()
                     {
                         Name = "White rice"
-                        //,
-                        //Quantity = 1.5F,
-                        //UnitOfMeasurement = Ingredient._unitOfMeasurement.cup
                     },
                     new Ingredient()
                     {
-                        Name = "Water",
-                        //Quantity = 2.5F
-                        //,
-                        //UnitOfMeasurement = Ingredient._unitOfMeasurement.cup
+                        Name = "Water"
                     },
                     new Ingredient()
                     {
                         Name = "Garlic"
-                        //,
-                        //Quantity = 3,
-                        //UnitOfMeasurement = Ingredient._unitOfMeasurement.unit
                     },
                     new Ingredient()
                     {
                         Name = "Salt"
-                        //,
-                        //UnitOfMeasurement = Ingredient._unitOfMeasurement.atWill
                     },
                     new Ingredient()
                     {
-                        Name = "balsamic vinegar"//,
-                                                    //              Quantity = 0.25F,
-                                                    //            UnitOfMeasurement = Ingredient._unitOfMeasurement.cup
+                        Name = "balsamic vinegar"
                     },
                     new Ingredient()
                     {
-                        Name = "extra-virgin olive oil"//,
-                                                        //              Quantity = 3,
-                                                        //            UnitOfMeasurement = Ingredient._unitOfMeasurement.tbsp
+                        Name = "extra-virgin olive oil"
                     },
                     new Ingredient()
                     {
-                        Name = "brown sugar"//,
-                                            //              Quantity = 2,
-                                            //            UnitOfMeasurement = Ingredient._unitOfMeasurement.tbsp
+                        Name = "brown sugar"
                     },
                     new Ingredient()
                     {
-                        Name = "cloves garlic, minced"//,
-                                                        //              Quantity = 3,
-                                                        //            UnitOfMeasurement = Ingredient._unitOfMeasurement.unit
+                        Name = "cloves garlic, minced"
                     },
                     new Ingredient()
                     {
-                        Name = "dried thyme"//,
-                                            //              Quantity = 1,
-                                            //            UnitOfMeasurement = Ingredient._unitOfMeasurement.tsp
+                        Name = "dried thyme"
                     },
                     new Ingredient()
                     {
-                        Name = "dried rosemary"//,
-                                                //              Quantity = 1,
-                                                //            UnitOfMeasurement = Ingredient._unitOfMeasurement.tsp
+                        Name = "dried rosemary"
                     },
                     new Ingredient()
                     {
-                        Name = "chicken breasts"//,
-                                                //              Quantity = 4,
-                                                //            UnitOfMeasurement = Ingredient._unitOfMeasurement.unit
-                    },
-                    //new Ingredient()
-                    //{
-                    //    Name = "salt"//,
-                    //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.atWill
-                    //},
-                    new Ingredient()
-                    {
-                        Name = "Freshly ground black pepper"//,
-                                                            //UnitOfMeasurement = Ingredient._unitOfMeasurement.atWill
+                        Name = "chicken breasts"
                     },
                     new Ingredient()
                     {
-                        Name = "Freshly chopped parsley"//,
-                                                        // UnitOfMeasurement = Ingredient._unitOfMeasurement.atWill
+                        Name = "Freshly ground black pepper"
                     },
                     new Ingredient()
                     {
-                        Name = "boneless, skinless pork shoulder, boston butt"//,
-                                                                                //Quantity = 6,
-                                                                                //UnitOfMeasurement = Ingredient._unitOfMeasurement.pound
+                        Name = "Freshly chopped parsley"
                     },
                     new Ingredient()
                     {
-                        Name = "cloves garlic"//,
-                                                //Quantity = 6,
-                                                //UnitOfMeasurement = Ingredient._unitOfMeasurement.unit
+                        Name = "boneless, skinless pork shoulder, boston butt"
                     },
                     new Ingredient()
                     {
-                        Name = "olive oil"//,
-                                            //Quantity = 0.5F,
-                                            //UnitOfMeasurement = Ingredient._unitOfMeasurement.cup
+                        Name = "cloves garlic"
                     },
                     new Ingredient()
                     {
-                        Name = "cumin"//,
-                                        //Quantity = 2,
-                                        //UnitOfMeasurement = Ingredient._unitOfMeasurement.tsp
-                    },
-                    //new Ingredient()
-                    //{
-                    //    Name = "salt"//,
-                    //                    //Quantity = 2,
-                    //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.tbsp
-                    //},
-                    new Ingredient()
-                    {
-                        Name = "black pepper"//,
-                                                //Quantity = 1,
-                                                //UnitOfMeasurement = Ingredient._unitOfMeasurement.tbsp
+                        Name = "olive oil"
                     },
                     new Ingredient()
                     {
-                        Name = "oregano leaves"//,
-                                                //Quantity = 3,
-                                                //UnitOfMeasurement = Ingredient._unitOfMeasurement.tbsp
+                        Name = "cumin"
                     },
                     new Ingredient()
                     {
-                        Name = "fresh squeezed orange juice"//,
-                                                            //Quantity = 0.5F,
-                                                            //UnitOfMeasurement = Ingredient._unitOfMeasurement.cup
+                        Name = "black pepper"
                     },
                     new Ingredient()
                     {
-                        Name = "fresh squeezed lime juice"//,
-                                                            //Quantity = 0.25F,
-                                                            //UnitOfMeasurement = Ingredient._unitOfMeasurement.cup
+                        Name = "oregano leaves"
                     },
                     new Ingredient()
                     {
-                        Name = "serrano, seeded, and diced"//,
-                                                            //Quantity = 1,
-                                                            //UnitOfMeasurement = Ingredient._unitOfMeasurement.unit
+                        Name = "fresh squeezed orange juice"
                     },
                     new Ingredient()
                     {
-                        Name = "freshly chopped fresh cilantro"//,
-                                                                //Quantity = 0.25F,
-                                                                //UnitOfMeasurement = Ingredient._unitOfMeasurement.cup
+                        Name = "fresh squeezed lime juice"
                     },
                     new Ingredient()
                     {
-                        Name = "White rice, for serving"//,
-                                                        //UnitOfMeasurement = Ingredient._unitOfMeasurement.atWill
+                        Name = "serrano, seeded, and diced"
+                    },
+                    new Ingredient()
+                    {
+                        Name = "freshly chopped fresh cilantro"
+                    },
+                    new Ingredient()
+                    {
+                        Name = "White rice, for serving"
                     }
                 );
             }
             if (!context.Recipe_Ingredient.Any())
             {
-                context.AddRange(
+                context.Recipe_Ingredient.AddRange(
                     new Recipe_Ingredient()
                     {
                         IngredientID = 1,
@@ -348,7 +289,6 @@ namespace Assignment1.Models
                     {
                         IngredientID = 4,
                         RecipeID = 1,
-                        Quantity = 9999,
                         UnitOfMeasurement = Recipe_Ingredient._unitOfMeasurement.atWill
                     },
                     new Recipe_Ingredient()
@@ -404,21 +344,18 @@ namespace Assignment1.Models
                     {
                         IngredientID = 4,
                         RecipeID = 2,
-                        Quantity = 9999,
                         UnitOfMeasurement = Recipe_Ingredient._unitOfMeasurement.atWill
                     },
                     new Recipe_Ingredient()
                     {
                         IngredientID = 12,
                         RecipeID = 2,
-                        Quantity = 9999,
                         UnitOfMeasurement = Recipe_Ingredient._unitOfMeasurement.atWill
                     },
                     new Recipe_Ingredient()
                     {
                         IngredientID = 13,
                         RecipeID = 2,
-                        Quantity = 9999,
                         UnitOfMeasurement = Recipe_Ingredient._unitOfMeasurement.atWill
                     },
                     new Recipe_Ingredient()
@@ -502,7 +439,6 @@ namespace Assignment1.Models
                     {
                         IngredientID = 24,
                         RecipeID = 3,
-                        Quantity = 9999,
                         UnitOfMeasurement = Recipe_Ingredient._unitOfMeasurement.atWill
                     }
                     );

@@ -21,10 +21,6 @@ namespace Assignment1.Models
         [Required(ErrorMessage = "Please enter a title for the recipe")]
         public string Title { get; set; }
         /// <summary>
-        /// Holds a List with the ingredients for the Recipe object
-        /// </summary>
-        //public List<Ingredient> Ingredients { get; set; }
-        /// <summary>
         /// Holds the preparation time for the Recipe object
         /// </summary>
         [Required(ErrorMessage = "Please enter a preparation time for the recipe")]

@@ -10,7 +10,6 @@ namespace Assignment1.Models
 {
     public class ApplicationDbContext : DbContext
     {
-
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
 
@@ -21,14 +20,13 @@ namespace Assignment1.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Recipe_Ingredient>()
-                .HasKey(o => new { o.IngredientID, o.RecipeID });
+                .HasKey(o => new { o.IngredientID, o.RecipeID }); // sets the composite primary key for the Recipe_Ingredient table
         }
     }
 
     public class ApplicationDbContextFactory
             : IDesignTimeDbContextFactory<ApplicationDbContext>
     {
-
         public ApplicationDbContext CreateDbContext(string[] args) =>
             Program.BuildWebHost(args).Services
                 .GetRequiredService<ApplicationDbContext>();
