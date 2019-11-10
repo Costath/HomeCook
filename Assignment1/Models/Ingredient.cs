@@ -1,28 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Assignment1.Models
 {
     public class Ingredient
     {
+        /// <summary>
+        /// Unique ID for each Ingredient object
+        /// </summary>
+        [Key]
+        [BindNever]
         public int IngredientID { get; set; }
+        /// <summary>
+        /// Name of the Ingredient
+        /// </summary>
         public string Name { get; set; }
-        public float Quantity { get; set; }
-        public _unitOfMeasurement UnitOfMeasurement { get; set; }
-        public enum _unitOfMeasurement
-        {
-            ______,
-            litter,
-            ml,
-            gram,
-            kg,
-            oz,
-            fl_oz,
-            pound,
-            tbsp,
-            tsp
-        }
     }
 }

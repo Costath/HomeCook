@@ -1,40 +1,21 @@
-﻿@model IEnumerable<Assignment1.Models.Recipe>
+﻿@model Assignment1.Models.RecipeInput
 
 @{
     ViewData["Title"] = "Recipe Page";
 }
 
-@foreach (Assignment1.Models.Recipe r in Model)
-{
-    <ul>
-        <li><h2>@r.Title</h2></li>
-        <li>Preparation time: @r.PrepTime min</li>
-        <li>Cooking time: @r.CookTime min</li>
-        <li>Ingredients:</li>
-        <li>
-            <ul>
-                @foreach (Assignment1.Models.Ingredient i in r.Ingredients)
-                {
-                    if (i.Quantity > 0)
-                    {
-                        <li>@i.Name - @i.Quantity @i.UnitOfMeasurement</li>
-                    }   
-                }
-
-            </ul>
-        </li>
-        <li>Instructions: @r.Instructions</li>
-    </ul>
-}
-            
-            @*<table>
-                    <tr><td><h2>@r.Title</h2></td></tr>
-                    <tr><td>Preparation time: @r.PrepTime</td></tr>
-                    <tr><td>Cook time: @r.CookTime</td></tr>
-
-
-
-
-                    <tr><td>Ingredients: @r.Ingredients</td></tr>
-                    <tr><td>Instructions: @r.Instructions</td></tr>
-                </table>*@
+<ul>
+    <li><h2>@Model.Title</h2></li>
+    <li>Total time: @Model.TotalTime min</li>
+    <li>Cooking time: @Model.CookTime min</li>
+    <li>Ingredients:</li>
+    <li>
+        <ul>
+            @foreach (Assignment1.Models.IngredientInput i in Model.Ingredients)
+            {
+                <li>@i.Name - @i.Quantity @i.UnitOfMeasurement</li>
+            }
+        </ul>
+    </li>
+    <li>Instructions: @Model.Instructions</li>
+</ul>
