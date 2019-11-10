@@ -61,8 +61,12 @@ a:hover {
 #content {
     min-height: 100px;
 }
-#addRecipeTable{
+#addRecipeTable {
     text-align: right;
+    width: 450px;
+    margin-left: 60px;
+    margin-right: 150px;
+    border-collapse: collapse;
 }
 input, textarea {
     width: 200px;
@@ -73,9 +77,7 @@ input, textarea {
     width: auto;
 }
 table {
-    width: 450px;
-    margin-left: 60px;
-    margin-right: 150px;
+    width: 765px;
     border-collapse: collapse;
 }
 td {
