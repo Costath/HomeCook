@@ -70,6 +70,9 @@ namespace Assignment1.Controllers
                 recipe_ingredientRepository.SaveRecipe_Ingredient(recipe_ingredient);
             }
 
+
+            recipeInput.RecipeID = recipeRepository.RecipeList.FirstOrDefault(r => r.Title == recipeInput.Title).RecipeID;
+
             return View("../Recipe/DisplayPage", recipeInput);
         }
         public PartialViewResult Partial_AddRecipe()
@@ -156,6 +159,13 @@ namespace Assignment1.Controllers
             }
 
             return View("../Recipe/DisplayPage", recipeInput);
+        }
+        [Route("CRUD/deleteRecipe/{recipeID}")]
+        public ViewResult deleteRecipe(int recipeID)
+        {
+            recipeRepository.deleteRecipe(recipeID);
+
+            return View("../Recipe/AllRecipes", recipeRepository.RecipeList);
         }
     }
 }

@@ -36,5 +36,16 @@ namespace Assignment1.Models
             }
             context.SaveChanges();
         }
+        /// <summary>
+        /// Deletes a Recipe object from the database
+        /// </summary>
+        /// <param name="recipeID"></param>
+        public void deleteRecipe(int recipeID)
+        {
+            Recipe recipe = RecipeList.FirstOrDefault(r => r.RecipeID == recipeID);
+            context.Recipes.Remove(recipe);
+
+            context.SaveChanges();
+        }
     }
 }

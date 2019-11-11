@@ -10,5 +10,7 @@ namespace Assignment1.Models
         IQueryable<Recipe> RecipeList { get; }
 
         void SaveRecipe(Recipe recipe);
+
+        void deleteRecipe(int recipeID);
     }
 }
