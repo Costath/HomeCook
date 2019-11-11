@@ -3,22 +3,49 @@
 @{
     ViewData["Title"] = "Recipe Page";
 }
-
-<ul>
-    <li><h2>@Model.Title</h2></li>
-    <li>Total time: @Model.TotalTime min</li>
-    <li>Cooking time: @Model.CookTime min</li>
-    <li>Ingredients:</li>
-    <li>
-        <ul>
-            @foreach (Assignment1.Models.IngredientInput i in Model.Ingredients)
-            {
-                <li>@i.Name - @i.Quantity @i.UnitOfMeasurement</li>
-            }
-        </ul>
-    </li>
-    <li>Instructions: @Model.Instructions</li>
-</ul>
-<div><a asp-controller="CRUD" asp-action="updateRecipe" asp-route-recipeID="@Model.RecipeID">Update Recipe</a></div>
-<div><a asp-controller="CRUD" asp-action="deleteRecipe" asp-route-recipeID="@Model.RecipeID">Delete Recipe</a></div>
-<div><a asp-controller="CRUD" asp-action="reviewRecipe" asp-route-recipeID="@Model.RecipeID">Write Review</a></div>
+<div id="recipeDiv">
+    <ul>
+        <li><h2>@Model.Title</h2></li>
+        <li>Total time: @Model.TotalTime min</li>
+        <li>Cooking time: @Model.CookTime min</li>
+        <li>Ingredients:</li>
+        <li>
+            <ul>
+                @foreach (Assignment1.Models.IngredientInput i in Model.Ingredients)
+                {
+                    <li>@i.Name - @i.Quantity @i.UnitOfMeasurement</li>
+                }
+            </ul>
+        </li>
+        <li>Instructions: @Model.Instructions</li>
+    </ul>
+</div>
+@if (Model.Reviews.Count() > 0)
+{
+    <h3>Reviews:</h3>
+    <ul>
+        @foreach (Assignment1.Models.Review rev in Model.Reviews)
+        {
+            <div class="reviewDiv">
+                @if (rev.Rating == 1)
+                {
+                    <li>
+                        Rating: @rev.Rating star
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        Rating: @rev.Rating stars
+                    </li>
+                }
+                <li>Comments: @rev.Comments</li>
+            </div>
+        }
+    </ul>
+}
+<div id="editRecipeLinks">
+    <div><a asp-controller="CRUD" asp-action="updateRecipe" asp-route-recipeID="@Model.RecipeID">Update Recipe</a></div>
+    <div><a asp-controller="CRUD" asp-action="deleteRecipe" asp-route-recipeID="@Model.RecipeID">Delete Recipe</a></div>
+    <div><a asp-controller="Recipe" asp-action="ReviewRecipe" asp-route-recipeID="@Model.RecipeID">Write Review</a></div>
+</div>

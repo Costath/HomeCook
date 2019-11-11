@@ -166,12 +166,5 @@ namespace Assignment1.Controllers
 
             return View("../Recipe/AllRecipes", recipeRepository.RecipeList);
         }
-        [Route("CRUD/reviewRecipe/{recipeID}")]
-        public ViewResult reviewRecipe(int recipeID)
-        {
-            RecipeInput recipeInput = RecipeInput.convertIntoRecipeInput(recipeID, recipeRepository, ingredientRepository, recipe_ingredientRepository);
-
-            return View("../Recipe/DisplayPage", recipeInput);
-        }
     }
 }

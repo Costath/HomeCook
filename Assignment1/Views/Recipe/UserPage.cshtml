@@ -1,7 +1,27 @@
-﻿
+﻿@model Assignment1.Models.Review;
+
 @{
     ViewData["Title"] = "UserPage";
 }
 
-UserPage
+<h3>Review Recipe @ViewBag.RecipeTitle</h3>
 
+<form method="post" asp-action="SaveReview">
+    <input name="RecipeID" value="@Model.RecipeID" type="hidden" />
+    <ul>
+        @*<li><input asp-for="Rating" /></li>*@
+        <li>Rating: 
+            <select asp-for="Rating" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </li>
+        <li>Comments: <textarea asp-for="Comments"></textarea></li>
+    </ul>
+
+    <span><button id="save" type="submit">Save</button></span>
+    <a asp-action="Home"><button id="cancel" type="button">Cancel</button></a>
+</form>

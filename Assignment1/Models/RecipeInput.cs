@@ -11,22 +11,32 @@ namespace Assignment1.Models
         public RecipeInput()
         {
             this.Ingredients = new List<IngredientInput> { };
+            this.Reviews = new List<Review> { };
         }
         /// <summary>
         /// Holds a List with the ingredients for the Recipe object
         /// </summary>
         [Required(ErrorMessage = "At least one ingredient is required")]
         public List<IngredientInput> Ingredients { get; set; }
-
-        public static RecipeInput convertIntoRecipeInput(int recipeID, IRecipeRepository recipeRepository, IIngredientRepository ingredientRepository, IRecipe_IngredientRepository recipe_ingredientRepository)
+        public List<Review> Reviews { get; set; }
+        /// <summary>
+        /// Creates a RecipeInput object from the recipeID received as parameter
+        /// </summary>
+        /// <param name="recipeID"></param>
+        /// <param name="recipeRepository"></param>
+        /// <param name="ingredientRepository"></param>
+        /// <param name="recipe_ingredientRepository"></param>
+        /// <returns></returns>
+        public static RecipeInput convertIntoRecipeInput(int recipeID, IRecipeRepository recipeRepository, IIngredientRepository ingredientRepository, IRecipe_IngredientRepository recipe_ingredientRepository, IReviewRepository reviewRepository)
         {
             Recipe recipe;
 
             recipe = recipeRepository.RecipeList
                         .FirstOrDefault(r => r.RecipeID == recipeID);
             RecipeInput recipeInput = new RecipeInput { };
-            IngredientInput ingredientInput;
             Ingredient ingredient = new Ingredient();
+            IngredientInput ingredientInput;
+            Review review;
 
             recipeInput.RecipeID = recipeID;
             recipeInput.Title = recipe.Title;
@@ -46,6 +56,18 @@ namespace Assignment1.Models
                 };
 
                 recipeInput.Ingredients.Add(ingredientInput);
+            }
+
+            foreach (Review rev in reviewRepository.Reviews
+                                                .Where(r => r.RecipeID == recipeID))
+            {
+                review = new Review
+                {
+                    Rating = rev.Rating,
+                    Comments = rev.Comments
+                };
+
+                recipeInput.Reviews.Add(review);
             }
 
             return recipeInput;
