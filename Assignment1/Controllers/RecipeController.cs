@@ -35,6 +35,7 @@ namespace Assignment1.Controllers
             IngredientInput ingredientInput;
             Ingredient ingredient = new Ingredient();
 
+            recipeInput.RecipeID = recipeID;
             recipeInput.Title = recipe.Title;
             recipeInput.TotalTime = recipe.TotalTime;
             recipeInput.CookTime = recipe.CookTime;

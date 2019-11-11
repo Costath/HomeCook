@@ -26,9 +26,15 @@ namespace Assignment1.Models
         /// <param name="recipe"></param>
         public void SaveRecipe(Recipe recipe)
         {
-            context.Recipes.Add(recipe);
+            if (RecipeList.Any(r => r.RecipeID == recipe.RecipeID))
+            {
+                context.Recipes.Update(recipe);
+            }
+            else
+            {
+                context.Recipes.Add(recipe);
+            }
             context.SaveChanges();
         }
-
     }
 }

@@ -26,7 +26,15 @@ namespace Assignment1.Models
         /// <param name="recipe_ingredient"></param>
         public void SaveRecipe_Ingredient(Recipe_Ingredient recipe_ingredient)
         {
-            context.Recipe_Ingredient.Add(recipe_ingredient);
+            if (Recipe_IngredientList
+                .Any(r => (r.RecipeID == recipe_ingredient.RecipeID && r.IngredientID == recipe_ingredient.IngredientID)))
+            {
+                context.Recipe_Ingredient.Update(recipe_ingredient);
+            }
+            else
+            {
+                context.Recipe_Ingredient.Add(recipe_ingredient);
+            }
             context.SaveChanges();
         }
     }

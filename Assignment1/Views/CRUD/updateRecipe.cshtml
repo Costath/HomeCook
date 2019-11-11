@@ -1,0 +1,34 @@
+﻿@model Assignment1.Models.RecipeInput
+
+@{
+    ViewData["Title"] = "updateRecipe";
+}
+
+<h2>Update Recipe <strong>@Model.Title</strong></h2>
+
+<form method="post">
+    <input name="RecipeID" value="@Model.RecipeID" type="hidden" />
+    <ul>
+        <li>Title: <input asp-for="Title" value="@Model.Title" /></li>
+        <li>TotalTime: <input asp-for="TotalTime" value="@Model.TotalTime" />min</li>
+        <li>CookTime: <input asp-for="CookTime" value="@Model.CookTime" />min</li>
+        <li>
+            <ul>
+                @foreach (Assignment1.Models.IngredientInput i in Model.Ingredients)
+                {
+                    <li>Ingredient name: <input asp-for="@i.Name" value="@i.Name" /></li>
+                    <li>
+                        Ingredient Quantity: <input asp-for="@i.Quantity" value="@i.Quantity" />
+                        <select asp-for="@i.UnitOfMeasurement" value="@i.UnitOfMeasurement" asp-items="@Html.GetEnumSelectList<Assignment1.Models.Recipe_Ingredient._unitOfMeasurement>()">
+                        </select>
+                    </li>
+                }
+            </ul>
+        </li>
+        <li>Instructions: <input asp-for="Instructions" value="@Model.Instructions" /></li>
+    </ul>
+
+    <span><button id="save" type="submit">Save</button></span>
+
+    <a asp-action="Home"><button id="cancel" type="button">Cancel</button></a>
+</form>
