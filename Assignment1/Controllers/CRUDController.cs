@@ -70,7 +70,6 @@ namespace Assignment1.Controllers
                 recipe_ingredientRepository.SaveRecipe_Ingredient(recipe_ingredient);
             }
 
-
             recipeInput.RecipeID = recipeRepository.RecipeList.FirstOrDefault(r => r.Title == recipeInput.Title).RecipeID;
 
             return View("../Recipe/DisplayPage", recipeInput);
@@ -166,6 +165,13 @@ namespace Assignment1.Controllers
             recipeRepository.deleteRecipe(recipeID);
 
             return View("../Recipe/AllRecipes", recipeRepository.RecipeList);
+        }
+        [Route("CRUD/reviewRecipe/{recipeID}")]
+        public ViewResult reviewRecipe(int recipeID)
+        {
+            RecipeInput recipeInput = RecipeInput.convertIntoRecipeInput(recipeID, recipeRepository, ingredientRepository, recipe_ingredientRepository);
+
+            return View("../Recipe/DisplayPage", recipeInput);
         }
     }
 }
