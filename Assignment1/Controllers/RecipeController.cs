@@ -26,37 +26,9 @@ namespace Assignment1.Controllers
             return View();
         }
         //Action that renders the DisplayPage view passing a single Recipe object according to the received recipeID
-        [Route("{recipeID}")] //Attribute to receive the recipeID from the previous view
-        public ViewResult DisplayPage(int recipeID = 1)
+        [Route("Recipe/DisplayPage/{recipeID}")] //Attribute to receive the recipeID from the previous view
+        public ViewResult DisplayPage(int recipeID)
         {
-            //Recipe recipe;
-
-            //recipe = recipeRepository.RecipeList
-            //            .FirstOrDefault(r => r.RecipeID == recipeID);
-            //RecipeInput recipeInput = new RecipeInput { };
-            //IngredientInput ingredientInput;
-            //Ingredient ingredient = new Ingredient();
-
-            //recipeInput.RecipeID = recipeID;
-            //recipeInput.Title = recipe.Title;
-            //recipeInput.TotalTime = recipe.TotalTime;
-            //recipeInput.CookTime = recipe.CookTime;
-            //recipeInput.Instructions = recipe.Instructions;
-
-            //foreach (Recipe_Ingredient ri in recipe_ingredientRepository.Recipe_IngredientList
-            //                                    .Where(r => r.RecipeID == recipeID))
-            //{
-            //    ingredientInput = new IngredientInput
-            //    {
-            //        Name = ingredientRepository.Ingredients
-            //                .FirstOrDefault(i => i.IngredientID == ri.IngredientID).Name,
-            //        Quantity = ri.Quantity,
-            //        UnitOfMeasurement = ri.UnitOfMeasurement
-            //    };
-
-            //    recipeInput.Ingredients.Add(ingredientInput);
-            //}
-            //teste1
             RecipeInput recipeInput = RecipeInput.convertIntoRecipeInput(recipeID, recipeRepository, ingredientRepository, recipe_ingredientRepository, reviewRepository);
 
             return View(recipeInput);

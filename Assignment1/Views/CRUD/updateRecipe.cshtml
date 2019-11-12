@@ -4,9 +4,9 @@
     ViewData["Title"] = "updateRecipe";
 }
 
-<h2>Update Recipe <strong>@Model.Title</strong></h2>
+<h2>Update Recipe '@Model.Title'</h2>
 
-<form method="post">
+<form method="post" asp-action="updateRecipe">
     <input name="RecipeID" value="@Model.RecipeID" type="hidden" />
     <ul>
         <li>Title: <input asp-for="Title" value="@Model.Title" /></li>
@@ -14,21 +14,39 @@
         <li>CookTime: <input asp-for="CookTime" value="@Model.CookTime" />min</li>
         <li>
             <ul>
-                @foreach (Assignment1.Models.IngredientInput i in Model.Ingredients)
+                @for (int i = 0; i < Model.Ingredients.Count(); i++)
                 {
-                    <li>Ingredient name: <input asp-for="@i.Name" value="@i.Name" /></li>
+                    <input asp-for="@Model.Ingredients[i].IngredientID" value="@Model.Ingredients[i].IngredientID" type="hidden" />
+                    <li>ingredient ID: @Model.Ingredients[i].IngredientID</li>
+                    <li>Ingredient name: <input asp-for="@Model.Ingredients[i].Name" value="@Model.Ingredients[i].Name" /></li>
                     <li>
-                        Ingredient Quantity: <input asp-for="@i.Quantity" value="@i.Quantity" />
-                        <select asp-for="@i.UnitOfMeasurement" value="@i.UnitOfMeasurement" asp-items="@Html.GetEnumSelectList<Assignment1.Models.Recipe_Ingredient._unitOfMeasurement>()">
+                        Ingredient Quantity: <input asp-for="@Model.Ingredients[i].Quantity" value="@Model.Ingredients[i].Quantity" />
+                        <select asp-for="@Model.Ingredients[i].UnitOfMeasurement" value="@Model.Ingredients[i].UnitOfMeasurement" asp-items="@Html.GetEnumSelectList<Assignment1.Models.Recipe_Ingredient._unitOfMeasurement>()">
                         </select>
                     </li>
                 }
             </ul>
         </li>
-        <li>Instructions: <input asp-for="Instructions" value="@Model.Instructions" /></li>
+        <li>Instructions: <textarea asp-for="Instructions" value="@Model.Instructions" rows="5"></textarea></li>
     </ul>
 
     <span><button id="save" type="submit">Save</button></span>
 
     <a asp-action="Home"><button id="cancel" type="button">Cancel</button></a>
 </form>
+
+<script>
+    function disableAtWillQuantities() {
+        for (var i = 0; i < 4; i++) {
+            if (document.getElementsByTagName("select")[i].value == "11") {
+                document.getElementById("Ingredients_" + i + "__Quantity").disabled = "disabled";
+            } else {
+                document.getElementById("Ingredients_" + i + "__Quantity").disabled = "";
+            }
+        }
+    }
+    disableAtWillQuantities();
+    for (var i = 0; i < 4; i++) {
+        document.getElementsByTagName("select")[i].addEventListener("change", disableAtWillQuantities, false);
+    }
+</script>

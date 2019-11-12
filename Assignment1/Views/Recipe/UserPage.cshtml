@@ -9,8 +9,7 @@
 <form method="post" asp-action="SaveReview">
     <input name="RecipeID" value="@Model.RecipeID" type="hidden" />
     <ul>
-        @*<li><input asp-for="Rating" /></li>*@
-        <li>Rating: 
+        <li>Rating:
             <select asp-for="Rating" >
                 <option value="1">1</option>
                 <option value="2">2</option>

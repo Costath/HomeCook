@@ -19,144 +19,32 @@ namespace Assignment1.Models
                         Title = "Steamed Rice",
                         TotalTime = 20,
                         CookTime = 12,
-                        Instructions = "1 - Mix all ingredients in a saucepan, then put it on the stovetop.\n" +
-                                        "2 - Set the temperature to mid heat and wait the water dry out.\n" +
-                                        "3 - Once there is no more water, remove the saucepan from heat."
-                        //                ,
-                        //Ingredients = new List<Ingredient> () {
-                        //    new Ingredient() {Name = "Rice"
-                        //                    //,
-                        //                    //Quantity = 1.5F,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.cup
-                        //                    },
-                        //    new Ingredient() {Name = "Water",
-                        //                    //Quantity = 2.5F
-                        //                    //,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.cup
-                        //                    },
-                        //    new Ingredient() {Name = "Garlic"
-                        //                    //,
-                        //                    //Quantity = 3,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.unit
-                        //                    },
-                        //    new Ingredient() {Name = "Salt"
-                        //                    //,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.atWill
-                        //                    }
-                        //}
+                        Instructions = "1 - Mix all ingredients in a saucepan, then put it on the stovetop;" +
+                                        "2 - Set the temperature to mid heat and wait the water dry out;" +
+                                        "3 - Once there is no more water, remove the saucepan from heat;"
                     },
                     new Recipe
                     {
                         Title = "Grilled Chicken Breast",
                         TotalTime = 45,
                         CookTime = 15,
-                        Instructions = "1 - In a medium bowl, whisk together balsamic vinegar, olive oil, brown sugar, garlic, and dried herbs, and season generously with salt and pepper. Reserve ¼ cup.\n" +
-                                        "2 - Add chicken to the bowl and toss to combine. Let marinate at least 20 minutes and up to overnight.\n" +
-                                        "3 - Preheat grill to medium high. Add chicken and grill, basting with reserved marinade, until cooked through, 6 minutes per side.\n" +
+                        Instructions = "1 - In a medium bowl, whisk together balsamic vinegar, olive oil, brown sugar, garlic, and dried herbs, and season generously with salt and pepper. Reserve ¼ cup;" +
+                                        "2 - Add chicken to the bowl and toss to combine. Let marinate at least 20 minutes and up to overnight;" +
+                                        "3 - Preheat grill to medium high. Add chicken and grill, basting with reserved marinade, until cooked through, 6 minutes per side;" +
                                         "4 - Garnish with parsley before serving."
-                        //                ,
-                        //Ingredients = new List<Ingredient>() {
-                        //    new Ingredient() {Name = "balsamic vinegar"//,
-                        //      //              Quantity = 0.25F,
-                        //        //            UnitOfMeasurement = Ingredient._unitOfMeasurement.cup
-                        //                    },
-                        //    new Ingredient() {Name = "extra-virgin olive oil"//,
-                        //      //              Quantity = 3,
-                        //        //            UnitOfMeasurement = Ingredient._unitOfMeasurement.tbsp
-                        //                    },
-                        //    new Ingredient() {Name = "brown sugar"//,
-                        //      //              Quantity = 2,
-                        //        //            UnitOfMeasurement = Ingredient._unitOfMeasurement.tbsp
-                        //                    },
-                        //    new Ingredient() {Name = "cloves garlic, minced"//,
-                        //      //              Quantity = 3,
-                        //        //            UnitOfMeasurement = Ingredient._unitOfMeasurement.unit
-                        //                    },
-                        //    new Ingredient() {Name = "dried thyme"//,
-                        //      //              Quantity = 1,
-                        //        //            UnitOfMeasurement = Ingredient._unitOfMeasurement.tsp
-                        //                    },
-                        //    new Ingredient() {Name = "dried rosemary"//,
-                        //      //              Quantity = 1,
-                        //        //            UnitOfMeasurement = Ingredient._unitOfMeasurement.tsp
-                        //                    },
-                        //    new Ingredient() {Name = "chicken breasts"//,
-                        //      //              Quantity = 4,
-                        //        //            UnitOfMeasurement = Ingredient._unitOfMeasurement.unit
-                        //                    },
-                        //    new Ingredient() {Name = "salt"//,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.atWill
-                        //                    },
-                        //    new Ingredient() {Name = "Freshly ground black pepper"//,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.atWill
-                        //                    },
-                        //    new Ingredient() {Name = "Freshly chopped parsley"//,
-                        //                   // UnitOfMeasurement = Ingredient._unitOfMeasurement.atWill
-                        //                    }
-                        //}
                     },
                     new Recipe
                     {
                         Title = "Slow-Cooker Pork Shoulder",
                         TotalTime = 500,
                         CookTime = 480,
-                        Instructions = "1 - Dry pork shoulder with a paper towel and make 1” incisions with a knife all over.\n" +
-                                        "2 - Pulse garlic, ¼ cup oil, cumin, salt, pepper, and oregano in a food processor until a paste is formed. Remove 2 tablespoons of the paste and set aside.\n" +
-                                        "3 - Rub pork shoulder all over with remaining paste, pushing some of it into the incisions.\n" +
-                                        "4 - Place pork in slow cooker, cover, and cook on low until meat is fork-tender but not yet completely falling apart, 7 1/2 to 8 hours.\n" +
+                        Instructions = "1 - Dry pork shoulder with a paper towel and make 1” incisions with a knife all over;" +
+                                        "2 - Pulse garlic, ¼ cup oil, cumin, salt, pepper, and oregano in a food processor until a paste is formed. Remove 2 tablespoons of the paste and set aside;" +
+                                        "3 - Rub pork shoulder all over with remaining paste, pushing some of it into the incisions;" +
+                                        "4 - Place pork in slow cooker, cover, and cook on low until meat is fork-tender but not yet completely falling apart, 7 1/2 to 8 hours;" +
                                         "5 - To make the sauce, heat remaining ¼ cup oil in a small saucepan over medium heat until shimmering. Add reserved 2 tablespoons garlic paste and let sizzle, " +
-                                                "stirring continuously until fragrant, just about 1 minute. Remove from heat and let cool before whisking in orange juice, lime juice, serrano, and cilantro.\n" +
+                                                "stirring continuously until fragrant, just about 1 minute. Remove from heat and let cool before whisking in orange juice, lime juice, serrano, and cilantro;" +
                                         "6 - Serve sliced pork over rice with sauce drizzled on top."
-                        //                ,
-                        //Ingredients = new List<Ingredient>() {
-                        //    new Ingredient() {Name = "boneless, skinless pork shoulder, boston butt"//,
-                        //                    //Quantity = 6,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.pound
-                        //                    },
-                        //    new Ingredient() {Name = "cloves garlic"//,
-                        //                    //Quantity = 6,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.unit
-                        //                    },
-                        //    new Ingredient() {Name = "olive oil"//,
-                        //                    //Quantity = 0.5F,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.cup
-                        //                    },
-                        //    new Ingredient() {Name = "cumin"//,
-                        //                    //Quantity = 2,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.tsp
-                        //                    },
-                        //    new Ingredient() {Name = "salt"//,
-                        //                    //Quantity = 2,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.tbsp
-                        //                    },
-                        //    new Ingredient() {Name = "black pepper"//,
-                        //                    //Quantity = 1,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.tbsp
-                        //                    },
-                        //    new Ingredient() {Name = "oregano leaves"//,
-                        //                    //Quantity = 3,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.tbsp
-                        //                    },
-                        //    new Ingredient() {Name = "fresh squeezed orange juice"//,
-                        //                    //Quantity = 0.5F,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.cup
-                        //                    },
-                        //    new Ingredient() {Name = "fresh squeezed lime juice"//,
-                        //                    //Quantity = 0.25F,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.cup
-                        //                    },
-                        //    new Ingredient() {Name = "serrano, seeded, and diced"//,
-                        //                    //Quantity = 1,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.unit
-                        //                    },
-                        //    new Ingredient() {Name = "freshly chopped fresh cilantro"//,
-                        //                    //Quantity = 0.25F,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.cup
-                        //                    },
-                        //    new Ingredient() {Name = "White rice, for serving"//,
-                        //                    //UnitOfMeasurement = Ingredient._unitOfMeasurement.atWill
-                        //                    }
-                        //}
                     }
                 );
             }

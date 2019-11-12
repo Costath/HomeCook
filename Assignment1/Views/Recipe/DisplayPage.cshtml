@@ -13,11 +13,22 @@
             <ul>
                 @foreach (Assignment1.Models.IngredientInput i in Model.Ingredients)
                 {
-                    <li>@i.Name - @i.Quantity @i.UnitOfMeasurement</li>
+                    if (!string.IsNullOrEmpty(i.Name))
+                    {
+                        <li>@i.Name - @i.Quantity @i.UnitOfMeasurement</li>
+                    }
                 }
             </ul>
         </li>
-        <li>Instructions: @Model.Instructions</li>
+        <li>Instructions:</li>
+        <li>
+            <ul>
+                @foreach (string line in @Model.Instructions.Split(';'))
+                {
+                    <li>@line</li>
+                }
+            </ul>
+        </li>
     </ul>
 </div>
 @if (Model.Reviews.Count() > 0)

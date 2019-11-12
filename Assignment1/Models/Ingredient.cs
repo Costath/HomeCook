@@ -13,7 +13,6 @@ namespace Assignment1.Models
         /// Unique ID for each Ingredient object
         /// </summary>
         [Key]
-        [BindNever]
         public int IngredientID { get; set; }
         /// <summary>
         /// Name of the Ingredient

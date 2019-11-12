@@ -49,6 +49,7 @@ namespace Assignment1.Models
             {
                 ingredientInput = new IngredientInput
                 {
+                    IngredientID = ri.IngredientID,
                     Name = ingredientRepository.Ingredients
                             .FirstOrDefault(i => i.IngredientID == ri.IngredientID).Name,
                     Quantity = ri.Quantity,

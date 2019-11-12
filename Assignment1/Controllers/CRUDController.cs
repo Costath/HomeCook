@@ -12,12 +12,14 @@ namespace Assignment1.Controllers
         private IRecipeRepository recipeRepository;
         private IIngredientRepository ingredientRepository;
         private IRecipe_IngredientRepository recipe_ingredientRepository;
+        private IReviewRepository reviewRepository;
 
-        public CRUDController(IRecipeRepository recipes, IIngredientRepository ingredients, IRecipe_IngredientRepository recipes_ingredients)
+        public CRUDController(IRecipeRepository recipes, IIngredientRepository ingredients, IRecipe_IngredientRepository recipes_ingredients, IReviewRepository reviews)
         {
             recipeRepository = recipes;
             ingredientRepository = ingredients;
             recipe_ingredientRepository = recipes_ingredients;
+            reviewRepository = reviews;
         }
         //When the AddRecipe view is opened from the link in the navigation menu it is rendered by this action
         [HttpGet]
@@ -58,13 +60,20 @@ namespace Assignment1.Controllers
                     recipe_ingredient.IngredientID = ingredientRepository.Ingredients
                                                         .FirstOrDefault(i => i.Name == ingredient.Name).IngredientID;
                 }
-                catch (Exception)
+                catch (System.NullReferenceException)
                 {
                     continue;
                 }
 
                 recipe_ingredient.RecipeID = recipeRepository.RecipeList.Last().RecipeID;
-                recipe_ingredient.Quantity = ingredient.Quantity;
+                if (ingredient.UnitOfMeasurement == Recipe_Ingredient._unitOfMeasurement.atWill)
+                {
+                    recipe_ingredient.Quantity = null;
+                }
+                else
+                {
+                    recipe_ingredient.Quantity = ingredient.Quantity;
+                }
                 recipe_ingredient.UnitOfMeasurement = ingredient.UnitOfMeasurement;
 
                 recipe_ingredientRepository.SaveRecipe_Ingredient(recipe_ingredient);
@@ -82,33 +91,8 @@ namespace Assignment1.Controllers
         [Route("CRUD/updateRecipe/{recipeID}")]
         public ViewResult updateRecipe(int recipeID)
         {
-            Recipe recipe;
+            RecipeInput recipeInput = RecipeInput.convertIntoRecipeInput(recipeID, recipeRepository, ingredientRepository, recipe_ingredientRepository, reviewRepository);
 
-            recipe = recipeRepository.RecipeList
-                        .FirstOrDefault(r => r.RecipeID == recipeID);
-            RecipeInput recipeInput = new RecipeInput { };
-            IngredientInput ingredientInput;
-            Ingredient ingredient = new Ingredient();
-
-            recipeInput.RecipeID = recipeID;
-            recipeInput.Title = recipe.Title;
-            recipeInput.TotalTime = recipe.TotalTime;
-            recipeInput.CookTime = recipe.CookTime;
-            recipeInput.Instructions = recipe.Instructions;
-
-            foreach (Recipe_Ingredient ri in recipe_ingredientRepository.Recipe_IngredientList
-                                                .Where(r => r.RecipeID == recipeID))
-            {
-                ingredientInput = new IngredientInput
-                {
-                    Name = ingredientRepository.Ingredients
-                            .FirstOrDefault(i => i.IngredientID == ri.IngredientID).Name,
-                    Quantity = ri.Quantity,
-                    UnitOfMeasurement = ri.UnitOfMeasurement
-                };
-
-                recipeInput.Ingredients.Add(ingredientInput);
-            }
             return View(recipeInput);
         }
         [HttpPost]
@@ -119,8 +103,9 @@ namespace Assignment1.Controllers
             Recipe recipe = new Recipe();
             List<Ingredient> ingredients = new List<Ingredient>();
             Recipe_Ingredient recipe_ingredient = new Recipe_Ingredient();
+            int n = 0;
 
-            // transfers recipe information from recipeInput to  a Recipe object to add in the repository later
+            // transfers recipe information from recipeInput to a Recipe object to update in the repository later
             recipeInput.RecipeID = Int32.Parse(Request.Form["RecipeID"]);
             recipe.RecipeID = recipeInput.RecipeID;
             recipe.Title = recipeInput.Title;
@@ -132,29 +117,26 @@ namespace Assignment1.Controllers
             {
                 temp = new Ingredient();
                 temp.Name = ingredient.Name;
+                temp.IngredientID = ingredient.IngredientID;
                 ingredients.Add(temp);
             }
 
             recipeRepository.SaveRecipe(recipe); // Saves the recipe to the database
             ingredientRepository.SaveIngredients(ingredients); // Saves the ingredients to the database
 
-            foreach (IngredientInput ingredient in recipeInput.Ingredients) // loads recipe_ingredient information to a recipe_ingredient object to add the database
+            if (!ingredients.Equals(recipeInput.Ingredients))
             {
-                try
+                foreach (IngredientInput ingredient in recipeInput.Ingredients) // loads recipe_ingredient information to a recipe_ingredient object to add in the database
                 {
-                    recipe_ingredient.IngredientID = ingredientRepository.Ingredients
-                                                        .FirstOrDefault(i => i.Name == ingredient.Name).IngredientID;
-                }
-                catch (Exception)
-                {
-                    continue;
-                }
+                    recipe_ingredient = new Recipe_Ingredient();
 
-                recipe_ingredient.RecipeID = recipe.RecipeID;
-                recipe_ingredient.Quantity = ingredient.Quantity;
-                recipe_ingredient.UnitOfMeasurement = ingredient.UnitOfMeasurement;
+                    recipe_ingredient.IngredientID = ingredient.IngredientID;
+                    recipe_ingredient.RecipeID = recipe.RecipeID;
+                    recipe_ingredient.Quantity = ingredient.Quantity;
+                    recipe_ingredient.UnitOfMeasurement = ingredient.UnitOfMeasurement;
 
-                recipe_ingredientRepository.SaveRecipe_Ingredient(recipe_ingredient);
+                    recipe_ingredientRepository.SaveRecipe_Ingredient(recipe_ingredient);
+                }
             }
 
             return View("../Recipe/DisplayPage", recipeInput);

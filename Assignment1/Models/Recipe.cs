@@ -13,7 +13,6 @@ namespace Assignment1.Models
         /// Holds a unique ID for each Recipe object
         /// </summary>
         [Key]
-        [BindNever]
         public int RecipeID { get; set; }
         /// <summary>
         /// Holds the title of the Recipe object

@@ -17,7 +17,7 @@
     <tbody>
         <tr class="@((recipe.RecipeID % 2 == 1) ? "alternate" : "")"> @*sets the class as alternate for the odd rows according to the RecipeID*@
             <td width="60%">
-                <a asp-action="DisplayPage" asp-route-recipeID="@recipe.RecipeID">@recipe.Title</a>@*passes the RecipeID of the clicked recipe through the URL*@
+                <a asp-controller="Recipe" asp-action="DisplayPage" asp-route-recipeID="@recipe.RecipeID">@recipe.Title</a>@*passes the RecipeID of the clicked recipe through the URL*@
             </td>
             <td class="allRecipesTD" width="24%">@recipe.TotalTime</td>
             <td class="allRecipesTD" width="16%">@recipe.CookTime</td>

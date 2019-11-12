@@ -12,3 +12,19 @@
     <a asp-action="Home"><button id="cancel" type="button">Cancel</button></a>
     
 </form>
+
+<script>
+    function disableAtWillQuantities() {
+        for (var i = 0; i < 5; i++) {
+            if (document.getElementsByTagName("select")[i].value == "11") {
+                document.getElementById("Ingredients_" + i + "__Quantity").disabled = "disabled";
+            } else {
+                document.getElementById("Ingredients_" + i + "__Quantity").disabled = "";
+            }
+        }
+    }
+    disableAtWillQuantities();
+    for (var i = 0; i < 5; i++) {
+        document.getElementsByTagName("select")[i].addEventListener("change", disableAtWillQuantities, false);
+    }
+</script>
