@@ -4,6 +4,10 @@
     ViewData["Title"] = "All Recipes";
 }
 
+@using (Html.BeginForm("AllRecipes", "Recipe", FormMethod.Get))
+{
+    @Html.TextBox("recipeName") <input type="submit" value="Search" />
+}
 <table>
     <thead>
         <tr class="alternate">
@@ -12,16 +16,22 @@
             <td><h3>Cook time</h3></td>
         </tr>
     </thead>
-@foreach (Assignment1.Models.Recipe recipe in Model)
-{   
-    <tbody>
-        <tr class="@((recipe.RecipeID % 2 == 1) ? "alternate" : "")"> @*sets the class as alternate for the odd rows according to the RecipeID*@
-            <td width="60%">
-                <a asp-controller="Recipe" asp-action="DisplayPage" asp-route-recipeID="@recipe.RecipeID">@recipe.Title</a>@*passes the RecipeID of the clicked recipe through the URL*@
-            </td>
-            <td class="allRecipesTD" width="24%">@recipe.TotalTime</td>
-            <td class="allRecipesTD" width="16%">@recipe.CookTime</td>
-        </tr>
-    </tbody>
-}
+    @{ int counter = 1; }
+    @foreach (Assignment1.Models.Recipe recipe in Model)
+    {
+        @if (recipe.Title.ToLower().Contains(Context.Request.Query["recipeName"].ToString().ToLower()))
+        {
+            <tbody>
+                <tr class="@((counter % 2 == 1) ? "alternate" : "")">
+                    @*sets the class as alternate for the odd rows according to the RecipeID*@
+                    <td width="60%">
+                        <a asp-controller="Recipe" asp-action="DisplayPage" asp-route-recipeID="@recipe.RecipeID">@recipe.Title</a>@*passes the RecipeID of the clicked recipe through the URL*@
+                    </td>
+                    <td class="allRecipesTD" width="24%">@recipe.TotalTime</td>
+                    <td class="allRecipesTD" width="16%">@recipe.CookTime</td>
+                </tr>
+            </tbody>
+            counter++;
+        }
+    }
 </table>
