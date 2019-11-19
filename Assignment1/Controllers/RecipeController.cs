@@ -39,13 +39,12 @@ namespace Assignment1.Controllers
         }
         public ViewResult AllRecipes()
         {
-            ViewBag.Search = "";
             return View(recipeRepository.RecipeList);
         }
         [HttpGet("{recipeName}")]
         public ViewResult AllRecipes(String recipeName)
         {
-            return View(recipeRepository.RecipeList);//.Where(x=>x.Title.ToLower().Contains(recipeName.ToLower())));
+            return View(recipeRepository.RecipeList);
         }
         [Route("Recipe/ReviewRecipe/{recipeID}")]
         public ViewResult ReviewRecipe(int recipeID)
