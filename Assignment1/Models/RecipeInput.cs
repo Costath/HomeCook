@@ -40,6 +40,7 @@ namespace Assignment1.Models
 
             recipeInput.RecipeID = recipeID;
             recipeInput.Title = recipe.Title;
+            recipeInput.Category = recipe.Category;
             recipeInput.TotalTime = recipe.TotalTime;
             recipeInput.CookTime = recipe.CookTime;
             recipeInput.Instructions = recipe.Instructions;
