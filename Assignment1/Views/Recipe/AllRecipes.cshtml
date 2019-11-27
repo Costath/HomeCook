@@ -23,15 +23,12 @@
              * Query the recipe to see if it contains the user's search words 
              */
             List<String> properties = new List<string> { recipe.Instructions, recipe.RecipeID.ToString(), recipe.Title, recipe.TotalTime.ToString() };
-            string[] queryWords = Context.Request.Query["query"].ToString().ToLower().Split(' ');
-            foreach (String queryWord in queryWords)
+            string query = Context.Request.Query["query"].ToString().ToLower();
+            foreach (String property in properties)
             {
-                foreach (String property in properties)
+                if (property.ToLower().Contains(query))
                 {
-                    if (property.ToLower().Contains(queryWord))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
             return false;
