@@ -16,22 +16,36 @@
             <td><h3>Cook time</h3></td>
         </tr>
     </thead>
+    @{string[] queryWords = Context.Request.Query["query"].ToString().ToLower().Split(' ');}
     @functions {
         public bool query(Assignment1.Models.Recipe recipe)
         {
-            /*
-             * Query the recipe to see if it contains the user's search words 
-             */
-            List<String> properties = new List<string> { recipe.Instructions, recipe.RecipeID.ToString(), recipe.Title, recipe.TotalTime.ToString() };
-            string query = Context.Request.Query["query"].ToString().ToLower();
-            foreach (String property in properties)
+            ///*
+            // * Query the recipe to see if it contains the user's search words. If there is no search words, just shows all recipes
+            // */
+
+            if (Context.Request.Query.Any() && !Context.Request.Query["query"][0].Equals(""))
             {
-                if (property.ToLower().Contains(query))
+                string[] titleWords = recipe.Title.Split(' ');
+                string[] queryWords = Context.Request.Query["query"].ToString().ToLower().Split(' ');
+                foreach (string queryWord in queryWords)
                 {
-                    return true;
+                    foreach (string titleWord in titleWords)
+                    {
+                        if (queryWord.ToLower() == titleWord.ToLower())
+                        {
+                            return true;
+                        }
+                    }
                 }
+
+                return false;
             }
-            return false;
+            else
+            {
+                return true;
+            }
+
         }
     }
     @{ int counter = 1; }

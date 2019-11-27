@@ -41,11 +41,11 @@ namespace Assignment1.Controllers
         {
             return View(recipeRepository.RecipeList);
         }
-        [HttpGet("{query}")]
-        public ViewResult AllRecipes(String recipeName)
-        {
-            return View(recipeRepository.RecipeList);
-        }
+        //[HttpGet("{query}")]
+        //public ViewResult AllRecipes(String recipeName)
+        //{
+        //    return View(recipeRepository.RecipeList);
+        //}
         [Route("Recipe/ReviewRecipe/{recipeID}")]
         public ViewResult ReviewRecipe(int recipeID)
         {
