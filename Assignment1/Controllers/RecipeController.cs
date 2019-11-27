@@ -41,7 +41,7 @@ namespace Assignment1.Controllers
         {
             return View(recipeRepository.RecipeList);
         }
-        [HttpGet("{recipeName}")]
+        [HttpGet("{query}")]
         public ViewResult AllRecipes(String recipeName)
         {
             return View(recipeRepository.RecipeList);

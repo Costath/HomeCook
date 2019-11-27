@@ -6,7 +6,7 @@
 
 @using (Html.BeginForm("AllRecipes", "Recipe", FormMethod.Get))
 {
-    @Html.TextBox("recipeName") <input type="submit" value="Search" />
+    @Html.TextBox("query") <input type="submit" value="Search" />
 }
 <table>
     <thead>
@@ -16,10 +16,28 @@
             <td><h3>Cook time</h3></td>
         </tr>
     </thead>
+    @functions {
+        public bool query(Assignment1.Models.Recipe recipe)
+        {
+            /*
+             * Query the recipe to see if it contains the user's search words 
+             */
+            List<String> properties = new List<string> { recipe.Instructions, recipe.RecipeID.ToString(), recipe.Title, recipe.TotalTime.ToString() };
+            string query = Context.Request.Query["query"].ToString().ToLower();
+            foreach (String property in properties)
+            {
+                if (property.ToLower().Contains(query))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
     @{ int counter = 1; }
     @foreach (Assignment1.Models.Recipe recipe in Model)
     {
-        @if (recipe.Title.ToLower().Contains(Context.Request.Query["recipeName"].ToString().ToLower()))
+        @if (query(recipe))
         {
             <tbody>
                 <tr class="@((counter % 2 == 1) ? "alternate" : "")">
