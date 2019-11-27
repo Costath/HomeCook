@@ -37,8 +37,6 @@ namespace Assignment1.Migrations
                     b.Property<int>("RecipeID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Category");
-
                     b.Property<float>("CookTime");
 
                     b.Property<string>("Instructions")
