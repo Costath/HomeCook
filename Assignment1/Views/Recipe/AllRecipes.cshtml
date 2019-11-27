@@ -9,7 +9,7 @@
     <fieldset>
         <legend>Filter</legend>
         @Html.Label("recipeName", "Recipe Name:  ")
-        @Html.TextBox("recipeName")
+        @Html.TextBox("query")
 
         @Html.Label("category", "  Category:  ")
         <select name="category" asp-items="@new SelectList(Model
@@ -29,22 +29,93 @@
             <td><h3>Cook time</h3></td>
         </tr>
     </thead>
-    @{ int counter = 1; }
-    @foreach (Assignment1.Models.Recipe recipe in Model)
-    {
-        @if (recipe.Title.ToLower().Contains(Context.Request.Query["recipeName"].ToString().ToLower()) && recipe.Category.ToLower().Contains(Context.Request.Query["category"].ToString().ToLower()))
+
+    @{string[] queryWords = Context.Request.Query["query"].ToString().ToLower().Split(' ');}
+    @functions {
+        public bool query(Assignment1.Models.Recipe recipe)
         {
-            <tbody>
-                <tr class="@((counter % 2 == 1) ? "alternate" : "")">
-                    @*sets the class as alternate for the odd rows according to the RecipeID*@
-                    <td width="60%">
-                        <a asp-controller="Recipe" asp-action="DisplayPage" asp-route-recipeID="@recipe.RecipeID">@recipe.Title</a>@*passes the RecipeID of the clicked recipe through the URL*@
-                    </td>
-                    <td class="allRecipesTD" width="24%">@recipe.TotalTime</td>
-                    <td class="allRecipesTD" width="16%">@recipe.CookTime</td>
-                </tr>
-            </tbody>
-            counter++;
+            ///*
+            // * Query the recipe to see if it contains the user's search words. If there is no search words, just shows all recipes
+            // */
+
+            if (Context.Request.Query["query"].Any() && !Context.Request.Query["query"][0].Equals(""))
+            {
+                string[] titleWords = recipe.Title.Split(' ');
+                string[] queryWords = Context.Request.Query["query"].ToString().ToLower().Split(' ');
+                foreach (string queryWord in queryWords)
+                {
+                    foreach (string titleWord in titleWords)
+                    {
+                        if (queryWord.ToLower() == titleWord.ToLower())
+                        {
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
+        public bool category(string category)
+        {
+            if (Context.Request.Query["category"].Any() && !Context.Request.Query["category"][0].Equals(""))
+            {
+                if (category.ToLower().Contains(Context.Request.Query["category"].ToString().ToLower()))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
         }
     }
+
+    @{ int counter = 1; }
+    <tbody>
+    @foreach (Assignment1.Models.Recipe recipe in Model)
+    {
+
+        @if (query(recipe) && category(recipe.Category))
+        {
+
+            <tr class="@((counter % 2 == 0) ? "alternate" : "")">
+                @*sets the class as alternate for the odd rows according to the RecipeID*@
+                <td width="60%">
+                    <a asp-controller="Recipe" asp-action="DisplayPage" asp-route-recipeID="@recipe.RecipeID">@recipe.Title</a>@*passes the RecipeID of the clicked recipe through the URL*@
+                </td>
+                <td class="allRecipesTD" width="24%">@recipe.TotalTime</td>
+                <td class="allRecipesTD" width="16%">@recipe.CookTime</td>
+            </tr>
+
+            counter++;
+        }
+
+    }
+    </tbody>
 </table>
+    @if (counter == 1)
+    {
+        <style>
+            thead{
+                display:none;
+            }
+        </style>
+
+        <ul>
+            <li><h3>No recipe could be found with the selected filters:</h3></li>
+            <li>Category: @Context.Request.Query["category"]</li>
+            <li>Search words: @(Context.Request.Query["query"].ToString())</li>
+        </ul>
+    }
