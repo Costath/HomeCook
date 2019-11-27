@@ -84,38 +84,38 @@
 
     @{ int counter = 1; }
     <tbody>
-    @foreach (Assignment1.Models.Recipe recipe in Model)
-    {
-
-        @if (query(recipe) && category(recipe.Category))
+        @foreach (Assignment1.Models.Recipe recipe in Model)
         {
 
-            <tr class="@((counter % 2 == 0) ? "alternate" : "")">
-                @*sets the class as alternate for the odd rows according to the RecipeID*@
-                <td width="60%">
-                    <a asp-controller="Recipe" asp-action="DisplayPage" asp-route-recipeID="@recipe.RecipeID">@recipe.Title</a>@*passes the RecipeID of the clicked recipe through the URL*@
-                </td>
-                <td class="allRecipesTD" width="24%">@recipe.TotalTime</td>
-                <td class="allRecipesTD" width="16%">@recipe.CookTime</td>
-            </tr>
+            @if (query(recipe) && category(recipe.Category))
+            {
 
-            counter++;
+                <tr class="@((counter % 2 == 0) ? "alternate" : "")">
+                    @*sets the class as alternate for the odd rows according to the RecipeID*@
+                    <td width="60%">
+                        <a asp-controller="Recipe" asp-action="DisplayPage" asp-route-recipeID="@recipe.RecipeID">@recipe.Title</a>@*passes the RecipeID of the clicked recipe through the URL*@
+                    </td>
+                    <td class="allRecipesTD" width="24%">@recipe.TotalTime</td>
+                    <td class="allRecipesTD" width="16%">@recipe.CookTime</td>
+                </tr>
+
+                counter++;
+            }
+
         }
-
-    }
     </tbody>
 </table>
-    @if (counter == 1)
-    {
-        <style>
-            thead{
-                display:none;
-            }
-        </style>
+@if (counter == 1)
+{
+    <style>
+        thead {
+            display: none;
+        }
+    </style>
 
-        <ul>
-            <li><h3>No recipe could be found with the selected filters:</h3></li>
-            <li>Category: @Context.Request.Query["category"]</li>
-            <li>Search words: @(Context.Request.Query["query"].ToString())</li>
-        </ul>
-    }
+    <ul>
+        <li><h3>No recipe could be found with the selected filters:</h3></li>
+        <li>Category: @Context.Request.Query["category"]</li>
+        <li>Search words: @(Context.Request.Query["query"].ToString())</li>
+    </ul>
+}
