@@ -10,17 +10,18 @@
     <input name="RecipeID" value="@Model.RecipeID" type="hidden" />
     <ul>
         <li>Title: <input asp-for="Title" value="@Model.Title" /></li>
+        <li>Category: <input asp-for="Category" value="@Model.Category" /></li>
         <li>TotalTime: <input asp-for="TotalTime" value="@Model.TotalTime" />min</li>
         <li>CookTime: <input asp-for="CookTime" value="@Model.CookTime" />min</li>
         <li>
+            Ingredients:
             <ul>
                 @for (int i = 0; i < Model.Ingredients.Count(); i++)
                 {
                     <input asp-for="@Model.Ingredients[i].IngredientID" value="@Model.Ingredients[i].IngredientID" type="hidden" />
-                    <li>ingredient ID: @Model.Ingredients[i].IngredientID</li>
-                    <li>Ingredient name: <input asp-for="@Model.Ingredients[i].Name" value="@Model.Ingredients[i].Name" /></li>
+                    <li>Name: <input asp-for="@Model.Ingredients[i].Name" value="@Model.Ingredients[i].Name" /></li>
                     <li>
-                        Ingredient Quantity: <input asp-for="@Model.Ingredients[i].Quantity" value="@Model.Ingredients[i].Quantity" />
+                        Quantity: <input asp-for="@Model.Ingredients[i].Quantity" value="@Model.Ingredients[i].Quantity" />
                         <select asp-for="@Model.Ingredients[i].UnitOfMeasurement" value="@Model.Ingredients[i].UnitOfMeasurement" asp-items="@Html.GetEnumSelectList<Assignment1.Models.Recipe_Ingredient._unitOfMeasurement>()">
                         </select>
                     </li>
@@ -37,7 +38,7 @@
 
 <script>
     function disableAtWillQuantities() {
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < 5; i++) {
             if (document.getElementsByTagName("select")[i].value == "11") {
                 document.getElementById("Ingredients_" + i + "__Quantity").disabled = "disabled";
             } else {
@@ -46,7 +47,7 @@
         }
     }
     disableAtWillQuantities();
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 5; i++) {
         document.getElementsByTagName("select")[i].addEventListener("change", disableAtWillQuantities, false);
     }
 </script>

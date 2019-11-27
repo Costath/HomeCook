@@ -6,7 +6,20 @@
 
 @using (Html.BeginForm("AllRecipes", "Recipe", FormMethod.Get))
 {
-    @Html.TextBox("recipeName") <input type="submit" value="Search" />
+    <fieldset>
+        <legend>Filter</legend>
+        @Html.Label("recipeName", "Recipe Name:  ")
+        @Html.TextBox("recipeName")
+
+        @Html.Label("category", "  Category:  ")
+        <select name="category" asp-items="@new SelectList(Model
+                                                    .GroupBy(rec => rec.Category)
+                                                    .Select(rec => rec.Key))">
+            <option value=""></option>
+        </select>
+
+        <input type="submit" value="Search" />
+    </fieldset>
 }
 <table>
     <thead>
@@ -19,7 +32,7 @@
     @{ int counter = 1; }
     @foreach (Assignment1.Models.Recipe recipe in Model)
     {
-        @if (recipe.Title.ToLower().Contains(Context.Request.Query["recipeName"].ToString().ToLower()))
+        @if (recipe.Title.ToLower().Contains(Context.Request.Query["recipeName"].ToString().ToLower()) && recipe.Category.ToLower().Contains(Context.Request.Query["category"].ToString().ToLower()))
         {
             <tbody>
                 <tr class="@((counter % 2 == 1) ? "alternate" : "")">
