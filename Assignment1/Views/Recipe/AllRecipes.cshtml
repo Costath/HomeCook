@@ -37,7 +37,7 @@
             ///*
             // * Query the recipe to see if it contains the user's search words. If there is no search words, just shows all recipes
             // */
-
+  
             if (Context.Request.Query["query"].Any() && !Context.Request.Query["query"][0].Equals(""))
             {
                 string[] titleWords = recipe.Title.Split(' ');
