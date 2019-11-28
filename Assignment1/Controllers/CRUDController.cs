@@ -42,6 +42,7 @@ namespace Assignment1.Controllers
             recipe.TotalTime = recipeInput.TotalTime;
             recipe.CookTime = recipeInput.CookTime;
             recipe.Instructions = recipeInput.Instructions;
+            recipe.Category = recipeInput.Category;
 
             foreach (IngredientInput ingredient in recipeInput.Ingredients) // transfers ingredient names from recipeInput to an Ingredient list to add in the repository later
             {
@@ -103,15 +104,16 @@ namespace Assignment1.Controllers
             Recipe recipe = new Recipe();
             List<Ingredient> ingredients = new List<Ingredient>();
             Recipe_Ingredient recipe_ingredient = new Recipe_Ingredient();
-            int n = 0;
 
             // transfers recipe information from recipeInput to a Recipe object to update in the repository later
             recipeInput.RecipeID = Int32.Parse(Request.Form["RecipeID"]);
+
             recipe.RecipeID = recipeInput.RecipeID;
             recipe.Title = recipeInput.Title;
             recipe.TotalTime = recipeInput.TotalTime;
             recipe.CookTime = recipeInput.CookTime;
             recipe.Instructions = recipeInput.Instructions;
+            recipe.Category = recipeInput.Category;
 
             foreach (IngredientInput ingredient in recipeInput.Ingredients) // transfers ingredient names from recipeInput to an Ingredient list to add in the repository later
             {

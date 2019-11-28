@@ -43,6 +43,7 @@ namespace Assignment1.Models
             recipeInput.TotalTime = recipe.TotalTime;
             recipeInput.CookTime = recipe.CookTime;
             recipeInput.Instructions = recipe.Instructions;
+            recipeInput.Category = recipe.Category;
 
             foreach (Recipe_Ingredient ri in recipe_ingredientRepository.Recipe_IngredientList
                                                 .Where(r => r.RecipeID == recipeID))
