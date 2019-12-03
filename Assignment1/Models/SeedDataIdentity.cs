@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
@@ -21,6 +22,9 @@ namespace Assignment1.Models
 
         public static async void EnsurePopulated(IApplicationBuilder app)
         {
+            ApplicationDbContext context = app.ApplicationServices.GetRequiredService<ApplicationDbContext>();
+            context.Database.Migrate();
+
             RoleManager<IdentityRole> role = app.ApplicationServices
                 .GetRequiredService<RoleManager<IdentityRole>>();
             await role.CreateAsync(new IdentityRole(Role1));
