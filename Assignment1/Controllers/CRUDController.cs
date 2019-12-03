@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Assignment1.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Assignment1.Controllers
 {
@@ -21,8 +22,10 @@ namespace Assignment1.Controllers
             recipe_ingredientRepository = recipes_ingredients;
             reviewRepository = reviews;
         }
+
         //When the AddRecipe view is opened from the link in the navigation menu it is rendered by this action
         [HttpGet]
+        [Authorize(Roles = "General")] 
         public ViewResult AddRecipe()
         {
             return View();
@@ -30,6 +33,7 @@ namespace Assignment1.Controllers
         /*When a Recipe object is created from AddRecipe view, the page is reloaded with the post method. 
             This action adds the just created Recipe object to the Repository and renders the DisplayPage view passing this Recipe object*/
         [HttpPost]
+        [Authorize(Roles = "General")]
         public ViewResult AddRecipe(RecipeInput recipeInput)
         {
             Ingredient temp;
@@ -84,11 +88,15 @@ namespace Assignment1.Controllers
 
             return View("../Recipe/DisplayPage", recipeInput);
         }
+
+        [Authorize(Roles = "General")]
         public PartialViewResult Partial_AddRecipe()
         {
             return PartialView();
         }
+
         [HttpGet]
+        [Authorize(Roles = "General")]
         [Route("CRUD/updateRecipe/{recipeID}")]
         public ViewResult updateRecipe(int recipeID)
         {
@@ -96,7 +104,9 @@ namespace Assignment1.Controllers
 
             return View(recipeInput);
         }
+
         [HttpPost]
+        [Authorize(Roles = "General")]
         [Route("CRUD/updateRecipe/{recipeID}")]
         public ViewResult updateRecipe(RecipeInput recipeInput)
         {
@@ -143,6 +153,8 @@ namespace Assignment1.Controllers
 
             return View("../Recipe/DisplayPage", recipeInput);
         }
+
+        [Authorize(Roles = "General")]
         [Route("CRUD/deleteRecipe/{recipeID}")]
         public ViewResult deleteRecipe(int recipeID)
         {

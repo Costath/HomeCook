@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Assignment1.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Assignment1.Controllers
@@ -41,6 +42,8 @@ namespace Assignment1.Controllers
         {
             return View(recipeRepository.RecipeList);
         }
+
+        [Authorize(Roles = "General")]
         [Route("Recipe/ReviewRecipe/{recipeID}")]
         public ViewResult ReviewRecipe(int recipeID)
         {
@@ -49,6 +52,8 @@ namespace Assignment1.Controllers
 
             return View("UserPage", review);
         }
+
+        [Authorize(Roles = "General")]
         [Route("Recipe/SaveReview/{recipeID}")]
         public ViewResult SaveReview(Review review)
         {

@@ -3,12 +3,13 @@ using Microsoft.AspNetCore.Builder;
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Assignment1.Models
 {
     public class SeedData
     {
-        public static void PopulateDB(IApplicationBuilder app)
+        public static void EnsurePopulated(IApplicationBuilder app)
         {
             ApplicationDbContext context = app.ApplicationServices.GetRequiredService<ApplicationDbContext>();
             context.Database.Migrate();
@@ -333,5 +334,6 @@ namespace Assignment1.Models
             }
             context.SaveChanges();
         }
+
     }
 }
