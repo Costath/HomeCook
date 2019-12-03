@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Assignment1.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Assignment1
 {
@@ -26,6 +27,12 @@ namespace Assignment1
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration["Data:RecipesWebSiteConnection:ConnectionString"]));
+
+            services.AddDbContext<AppIdentityDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration["Data:Identity:ConnectionString"]));
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
+
             services.AddTransient<IRecipeRepository, RecipeRepository>();
             services.AddTransient<IIngredientRepository, IngredientRepository>();
             services.AddTransient<IRecipe_IngredientRepository, Recipe_IngredientRepository> ();
@@ -39,6 +46,7 @@ namespace Assignment1
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseMvc(routes =>
                 {
                     routes.MapRoute
@@ -53,7 +61,9 @@ namespace Assignment1
                     );
                 }
             );
-            SeedData.PopulateDB(app);
+            SeedData.EnsurePopulated(app);
+
+            SeedDataIdentity.EnsurePopulated(app);
         }
     }
 }

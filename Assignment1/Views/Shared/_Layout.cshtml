@@ -18,7 +18,17 @@
                     <li><a asp-controller="Recipe" asp-action="Home">Home Page</a></li>
                     <li><a asp-controller="Recipe" asp-action="AllRecipes">All Recipes</a></li>
                     <li><a asp-controller="CRUD" asp-action="AddRecipe">Add Recipe</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-controller="Account" asp-action="Logout">Logout</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Account" asp-action="Login">Login</a></li>
+                    }
+
                 </ul>
+                <p>@User.Identity.Name</p>
             </nav>
             <div id="content"> @*Main content area*@
                 @RenderBody()

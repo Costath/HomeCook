@@ -1,0 +1,13 @@
+﻿@model UserLogin
+@{
+    ViewBag.Title = "Login";
+
+ }
+<div class="text-danger" asp-validation-summary="All"> </div>
+<form asp-action="Login" asp-controller="Account" method="post">
+    <input type="text" asp-for="Name" />
+    <input type="password" asp-for="Password" />
+    <input type="hidden" asp-for="ReturnUrl" />
+    <input type="submit" value="Log in"/>
+
+</form>

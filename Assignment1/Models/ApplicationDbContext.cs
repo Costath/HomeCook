@@ -17,6 +17,7 @@ namespace Assignment1.Models
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Recipe_Ingredient> Recipe_Ingredient { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
