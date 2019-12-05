@@ -11,9 +11,10 @@ using System;
 namespace Assignment1.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191205163538_Final")]
+    partial class Final
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,8 +37,6 @@ namespace Assignment1.Migrations
                 {
                     b.Property<int>("RecipeID")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Category");
 
                     b.Property<float>("CookTime");
 

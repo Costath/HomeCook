@@ -18,6 +18,7 @@ namespace Assignment1.Models
                 context.Recipes.AddRange(
                     new Recipe {
                         Title = "Steamed Rice",
+                        Category = "Asian",
                         TotalTime = 20,
                         CookTime = 12,
                         Instructions = "1 - Mix all ingredients in a saucepan, then put it on the stovetop;" +
@@ -27,6 +28,7 @@ namespace Assignment1.Models
                     new Recipe
                     {
                         Title = "Grilled Chicken Breast",
+                        Category = "Brazilian",
                         TotalTime = 45,
                         CookTime = 15,
                         Instructions = "1 - In a medium bowl, whisk together balsamic vinegar, olive oil, brown sugar, garlic, and dried herbs, and season generously with salt and pepper. Reserve ¼ cup;" +
@@ -37,6 +39,7 @@ namespace Assignment1.Models
                     new Recipe
                     {
                         Title = "Slow-Cooker Pork Shoulder",
+                        Category = "Slow Cooker",
                         TotalTime = 500,
                         CookTime = 480,
                         Instructions = "1 - Dry pork shoulder with a paper towel and make 1” incisions with a knife all over;" +
