@@ -22,7 +22,7 @@ namespace Assignment1.Models
 
         public static async void EnsurePopulated(IApplicationBuilder app)
         {
-            ApplicationDbContext context = app.ApplicationServices.GetRequiredService<ApplicationDbContext>();
+            AppIdentityDbContext context = app.ApplicationServices.GetRequiredService<AppIdentityDbContext>();
             context.Database.Migrate();
 
             RoleManager<IdentityRole> role = app.ApplicationServices
@@ -56,26 +56,6 @@ namespace Assignment1.Models
                 await userManager.CreateAsync(user3, (generalUserPass3));
                 await userManager.AddToRoleAsync(user3, Role1);
             }
-
-            //public static async Task EnsurePopulated(IApplicationBuilder app)
-            //{
-            //    //RoleManager<IdentityRole> role = app.ApplicationServices
-            //    //    .GetRequiredService<RoleManager<IdentityRole>>();
-            //    //await role.CreateAsync(new IdentityRole("General"));
-
-            //    UserManager<IdentityUser> userManager = app.ApplicationServices
-            //        .GetRequiredService<UserManager<IdentityUser>>();
-
-            //    IdentityUser user = await userManager.FindByIdAsync(generalUserName1);
-            //    if(user == null)
-            //    {
-            //        user = new IdentityUser(generalUserName1);
-            //        await userManager.CreateAsync(user, generalUserPass1);
-            //    }
-
-            //}
-
         }
-
     }
 }

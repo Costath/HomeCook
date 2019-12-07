@@ -34,6 +34,9 @@ namespace Assignment1.Models
         /// </summary>
         [Required(ErrorMessage = "Please enter a preparation instructions for the recipe")]
         public string Instructions { get; set; }
+        /// <summary>
+        /// Holds a string with the category for the Recipe object
+        /// </summary>
         public string Category { get; set; }
     }
 }
